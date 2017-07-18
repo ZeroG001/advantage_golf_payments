@@ -1,0 +1,1 @@
+andular.module('registrationForm', []);
