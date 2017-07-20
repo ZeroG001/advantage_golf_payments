@@ -1,8 +1,9 @@
 angular.
-	module('paymentFrom').
+	module('paymentForm').
 	component('paymentForm', {
-		templateUrl: 'payment-form/payment-form.template.html',
+		templateUrl: 'assets/js/payment-form/payment-form.template.html',
 		controller: function() {
-			
+			this.formElements = ["firstName", "lastName", "emailAddress"];
+			this.test = "hello"
 		}
-	})
+	});

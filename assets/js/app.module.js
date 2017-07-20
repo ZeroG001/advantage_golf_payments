@@ -1,12 +1,30 @@
 
 (function(){
 
-    var payApp = angular.module('payApp', ['registrationForm', 'paymentForm' ]);
+    var payApp = angular.module('payApp', [ 'paymentForm', 'registrationForm' ]);
 
 
-    payApp.controller('PayAppController', function($scope) {
+    payApp.controller('PayAppController', ['$scope', '$rootScope', function($scope) {
 
-        $scope.name = "blayne";
+      // In html make it so that fields attach to authorize. Use a method to shorten it.
+
+      $scope.name = "Blayne";
+
+      $scope.prices = {
+        "foursome" : { "price" : 460, "selected" : true},
+        "singlePlayer" : { "price" : 115, "selected" : true},
+        "dinnerGuest" : { "price" : 50, "selected" : true},
+        "holeSponsor" : { "price" : 100, "selected" : true},
+        "drinkSponsor" : { "price" : 250, "selected" : true},
+        "goldDinner" : { "price" : 500, "selected" : true},
+        "silverLunch" : { "price" : 350, "selected" : true},
+        "bronzePutting" : { "price" : 250, "selected" : true}
+      };
+
+      $scope.updatePrice = function() {
+        $scope.authorize = "";
+      }
+
 
         $scope.authorize = {
             "createTransactionRequest": {
@@ -48,12 +66,12 @@
                     "userFields": {
                         "userField": [
                             {
-                                "name": "Foursome Guests",
+                                "name": "Foursome Guests (lol)",
                                 "value": "Mark Johnson, Lisa Simpson, Ron McDonald, Jessica Alba"
                             },
                             {
-                                "name": "favorite_color",
-                                "value": "blue"
+                                "name": "emailAddress",
+                                "value": "test@hotmail.com"
                             }
                         ]
                     }
@@ -62,27 +80,30 @@
         }
 
 
-    });
 
-    payApp.component('helloWorld', {
-        template: 'Hello {{$ctrl.name}}',
-        controller: function(){
-            this.name = "Blayne";
-        }
+    }]);
+
+
+
+    // ----- Test code --------- //
+
+    document.getElementById('myButton').addEventListener('click', function() {
+      alert("clicked");
     })
+
 
 
 })()
 
 
-/* 
+/*
     -- Required Card Data (Backend) --
 
 
 
 
     -- Optional Card Data to be used (Backend) --
-    
+
         profile
         - createProfile : true
 
@@ -106,7 +127,7 @@
         - country
         - phoneNumber
 
-        
+
 
         shipTo ( have a "same as billing address" option )
         - firstName
@@ -170,7 +191,7 @@
                         "name": "Foursome Guests",
                         "value": "Mark Johnson, Lisa Simpson, Ron McDonald, Jessica Alba"
                     },
-                    
+
                         "name": "favorite_color",
                         "value": "blue"
                     }
@@ -179,7 +200,4 @@
         }
     }
 }
-
-
-
 */
