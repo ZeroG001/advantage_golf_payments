@@ -9,22 +9,42 @@
       // In html make it so that fields attach to authorize. Use a method to shorten it.
 
       $scope.name = "Blayne";
+      $scope.price = "20";
 
       $scope.prices = {
-        "foursome" : { "price" : 460, "selected" : true},
-        "singlePlayer" : { "price" : 115, "selected" : true},
-        "dinnerGuest" : { "price" : 50, "selected" : true},
-        "holeSponsor" : { "price" : 100, "selected" : true},
-        "drinkSponsor" : { "price" : 250, "selected" : true},
-        "goldDinner" : { "price" : 500, "selected" : true},
-        "silverLunch" : { "price" : 350, "selected" : true},
-        "bronzePutting" : { "price" : 250, "selected" : true}
+        "foursome" : { "price" : 460, "selected" : false},
+        "singlePlayer" : { "price" : 115, "selected" : false},
+        "dinnerGuest" : { "price" : 50, "selected" : false},
+        "holeSponsor" : { "price" : 100, "selected" : false},
+        "drinkSponsor" : { "price" : 250, "selected" : false},
+        "goldDinner" : { "price" : 500, "selected" : false},
+        "silverLunch" : { "price" : 350, "selected" : false},
+        "bronzePutting" : { "price" : 250, "selected" : false}
       };
 
+      $scope.guests = ["","","",""];
+
+
       $scope.updatePrice = function() {
-        $scope.authorize = "";
+        total = 0;
+
+        for (i in $scope.prices) {
+          if($scope.prices[i].selected == true) {
+            total += $scope.prices[i].price;
+          }
+        }
+
+        $scope.authorize.createTransactionRequest.transactionRequest.amount = total;
+        // $scope.price = total;
       }
 
+
+      $scope.updateGuests = function() {
+
+        guestsString =  $scope.guests[0] + "," + $scope.guests[1] + "," + $scope.guests[2] + "," + $scope.guests[3];
+        $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[0].value = guestsString;
+
+      }
 
         $scope.authorize = {
             "createTransactionRequest": {
