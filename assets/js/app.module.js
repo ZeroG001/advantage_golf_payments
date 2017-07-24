@@ -4,13 +4,12 @@
     var payApp = angular.module('payApp', [ 'paymentForm', 'registrationForm' ]);
 
 
-    payApp.controller('PayAppController', ['$scope', '$rootScope', function($scope) {
+    payApp.controller('PayAppController', ['$scope', '$rootScope', '$http', function($scope, $http) {
 
       // In html make it so that fields attach to authorize. Use a method to shorten it.
 
-      $scope.name = "Blayne";
-      $scope.price = "20";
 
+      // Item Prices
       $scope.prices = {
         "foursome" : { "price" : 460, "selected" : false},
         "singlePlayer" : { "price" : 115, "selected" : false},
@@ -22,7 +21,11 @@
         "bronzePutting" : { "price" : 250, "selected" : false}
       };
 
+
+      // Guest list
       $scope.guests = ["","","",""];
+
+      $scope.myWelcome = "";
 
 
       $scope.updatePrice = function() {
@@ -45,6 +48,22 @@
         $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[0].value = guestsString;
 
       }
+
+
+    // sned data via ajax
+    $scope.sendData = function() {
+
+        $http.get('phones/' + $routeParams.phoneId + '.json').then(function(response) {
+          self.phone = response.data;
+        });
+
+
+
+
+
+
+    }
+
 
         $scope.authorize = {
             "createTransactionRequest": {
@@ -106,10 +125,6 @@
 
 
     // ----- Test code --------- //
-
-    document.getElementById('myButton').addEventListener('click', function() {
-      alert("clicked");
-    })
 
 
 
