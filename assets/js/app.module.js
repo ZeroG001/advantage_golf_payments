@@ -1,10 +1,11 @@
-
 (function(){
 
     var payApp = angular.module('payApp', [ 'paymentForm', 'registrationForm' ]);
 
 
-    payApp.controller('PayAppController', ['$scope', '$rootScope', '$http', function($scope, $http) {
+    payApp.controller('PayAppController', ['$scope', '$http', function($scope, $http) {
+
+
 
       // In html make it so that fields attach to authorize. Use a method to shorten it.
 
@@ -22,10 +23,11 @@
       };
 
 
+
       // Guest list
       $scope.guests = ["","","",""];
 
-      $scope.myWelcome = "";
+      $scope.ajaxResponse = "";
 
 
       $scope.updatePrice = function() {
@@ -53,13 +55,10 @@
     // sned data via ajax
     $scope.sendData = function() {
 
-        $http.get('phones/' + $routeParams.phoneId + '.json').then(function(response) {
-          self.phone = response.data;
+        // $http.get('assets/actions/testAction.php').then(function(response) {
+        $http.get('assets/actions/authorizeNet/charge-credit-card.php').then(function(response) {
+          $scope.ajaxResponse = response.data;
         });
-
-
-
-
 
 
     }
@@ -105,7 +104,7 @@
                     "userFields": {
                         "userField": [
                             {
-                                "name": "Foursome Guests (lol)",
+                                "name": "Foursome Guests",
                                 "value": "Mark Johnson, Lisa Simpson, Ron McDonald, Jessica Alba"
                             },
                             {
@@ -121,11 +120,6 @@
 
 
     }]);
-
-
-
-    // ----- Test code --------- //
-
 
 
 })()
@@ -229,10 +223,12 @@
 
                         "name": "favorite_color",
                         "value": "blue"
+                    },
+                    {
+                        "name":  "Services"
                     }
                 ]
             }
         }
     }
-}
-*/
+} */
