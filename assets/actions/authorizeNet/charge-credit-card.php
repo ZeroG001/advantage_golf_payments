@@ -1,4 +1,12 @@
 <?php
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+  $params = json_decode(file_get_contents('php://input'));
+  var_dump($params);
+  die();
+}
+
 date_default_timezone_set ( "America/Detroit" );
 require 'vendor/autoload.php';
 use net\authorize\api\contract\v1 as AnetAPI;
@@ -6,11 +14,14 @@ use net\authorize\api\controller as AnetController;
 
 define("AUTHORIZENET_LOG_FILE","phplog");
 
-// Common setup for API credentials
+// Common setup for API credentials...Currently on Sandbox
   $merchantAuthentication = new AnetAPI\MerchantAuthenticationType();
   $merchantAuthentication->setName("6VdY4URw86P");
   $merchantAuthentication->setTransactionKey("3b2zDK52bKK8Ax6z");
   $refId = 'ref' . time();
+
+
+
 
   // Create the payment data for a credit card
   $creditCard = new AnetAPI\CreditCardType();
@@ -20,10 +31,14 @@ define("AUTHORIZENET_LOG_FILE","phplog");
   $paymentOne->setCreditCard($creditCard);
 
 
+
+
   // Create order information*****
   $order = new AnetAPI\OrderType();
   $order->setInvoiceNumber("10101");
   $order->setDescription("Golf Shirts");
+
+
 
 
   // Set the customer's Bill To address **********
@@ -38,12 +53,13 @@ define("AUTHORIZENET_LOG_FILE","phplog");
   $customerAddress->setCountry("USA");
 
 
+
+
   // Set the customer's identifying information ************
   $customerData = new AnetAPI\CustomerDataType();
   $customerData->setType("individual");
   $customerData->setId("99999456654");
   $customerData->setEmail("EllenJohnson@example.com");
-
 
 
 
@@ -76,6 +92,7 @@ define("AUTHORIZENET_LOG_FILE","phplog");
   $transactionRequestType->setAmount(151.51);
   $transactionRequestType->setPayment($paymentOne);
   $transactionRequestType->setBillTo($customerAddress);
+  $transactionRequestType->setCustomer($customerData);
   $transactionRequestType->addToUserFields($merchantDefinedField1);
   $transactionRequestType->addToUserFields($merchantDefinedField2);
   $transactionRequestType->addToUserFields($merchantDefinedField3);
@@ -132,7 +149,37 @@ else
 //     // Set the transaction's refId
 //     $refId = 'ref' . time();
 //
+//     // Create the payment data for a credit card
+//     $creditCard = new AnetAPI\CreditCardType();
+//     $creditCard->setCardNumber("4111111111111111");
+//     $creditCard->setExpirationDate("1226");
+//     $creditCard->setCardCode("123");
 //
+//     // Add the payment data to a paymentType object
+//     $paymentOne = new AnetAPI\PaymentType();
+//     $paymentOne->setCreditCard($creditCard);
+//
+//     // Create order information
+//     $order = new AnetAPI\OrderType();
+//     $order->setInvoiceNumber("10101");
+//     $order->setDescription("Golf Shirts");
+//
+//     // Set the customer's Bill To address
+//     $customerAddress = new AnetAPI\CustomerAddressType();
+//     $customerAddress->setFirstName("Ellen");
+//     $customerAddress->setLastName("Johnson");
+//     $customerAddress->setCompany("Souveniropolis");
+//     $customerAddress->setAddress("14 Main Street");
+//     $customerAddress->setCity("Pecan Springs");
+//     $customerAddress->setState("TX");
+//     $customerAddress->setZip("44628");
+//     $customerAddress->setCountry("USA");
+//
+//     // Set the customer's identifying information
+//     $customerData = new AnetAPI\CustomerDataType();
+//     $customerData->setType("individual");
+//     $customerData->setId("99999456654");
+//     $customerData->setEmail("EllenJohnson@example.com");
 //
 //     // Add values for transaction settings
 //     $duplicateWindowSetting = new AnetAPI\SettingType();

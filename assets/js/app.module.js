@@ -23,6 +23,70 @@
       };
 
 
+      // AUthorize json
+      $scope.authorize = {
+          "createTransactionRequest": {
+              // "merchantAuthentication": {
+              //     "name": "6VdY4URw86P",
+              //     "transactionKey": "3b2zDK52bKK8Ax6z"
+              // },
+              "refId": "123456",
+              "transactionRequest": {
+                  "transactionType": "authCaptureTransaction",
+                  "amount": "5",
+                  "payment": {
+                      "creditCard": {
+                          "cardNumber": "",
+                          "expirationDate": "",
+                          "cardCode": ""
+                      }
+                  },
+                  "billTo": {
+                      "firstName": "",
+                      "lastName": "",
+                      "company": "",
+                      "address": "",
+                      "city": "",
+                      "state": "",
+                      "zip": "",
+                      "country": ""
+                  },
+                  "shipTo": {
+                      "firstName": "",
+                      "lastName": "",
+                      "company": "",
+                      "address": "",
+                      "city": "",
+                      "state": "",
+                      "zip": "",
+                      "country": ""
+                  },
+                  "userFields": {
+                      "userField": [
+                          {
+                              "name": "Foursome Guests",
+                              "value": ""
+                          },
+                          {
+                              "name": "emailAddress",
+                              "value": ""
+                          }
+                      ]
+                  }
+              }
+          }
+      }
+
+
+      $scope.validateCardNumber = function() {
+        //  alert("card number validated");
+        // $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber = "23";
+      }
+
+      $scope.checkForm = function() {
+
+      }
+
 
       // Guest list
       $scope.guests = ["","","",""];
@@ -45,77 +109,19 @@
 
 
       $scope.updateGuests = function() {
-
         guestsString =  $scope.guests[0] + "," + $scope.guests[1] + "," + $scope.guests[2] + "," + $scope.guests[3];
         $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[0].value = guestsString;
-
       }
 
 
-    // sned data via ajax
-    $scope.sendData = function() {
-
-        // $http.get('assets/actions/testAction.php').then(function(response) {
-        $http.get('assets/actions/authorizeNet/charge-credit-card.php').then(function(response) {
-          $scope.ajaxResponse = response.data;
-        });
-
-
-    }
-
-
-        $scope.authorize = {
-            "createTransactionRequest": {
-                "merchantAuthentication": {
-                    "name": "6VdY4URw86P",
-                    "transactionKey": "3b2zDK52bKK8Ax6z"
-                },
-                "refId": "123456",
-                "transactionRequest": {
-                    "transactionType": "authCaptureTransaction",
-                    "amount": "5",
-                    "payment": {
-                        "creditCard": {
-                            "cardNumber": "5424000000000015",
-                            "expirationDate": "1220",
-                            "cardCode": "999"
-                        }
-                    },
-                    "billTo": {
-                        "firstName": "Ellen",
-                        "lastName": "Johnson",
-                        "company": "Souveniropolis",
-                        "address": "14 Main Street",
-                        "city": "Pecan Springs",
-                        "state": "TX",
-                        "zip": "44628",
-                        "country": "USA"
-                    },
-                    "shipTo": {
-                        "firstName": "China",
-                        "lastName": "Bayles",
-                        "company": "Thyme for Tea",
-                        "address": "12 Main Street",
-                        "city": "Pecan Springs",
-                        "state": "TX",
-                        "zip": "44628",
-                        "country": "USA"
-                    },
-                    "userFields": {
-                        "userField": [
-                            {
-                                "name": "Foursome Guests",
-                                "value": "Mark Johnson, Lisa Simpson, Ron McDonald, Jessica Alba"
-                            },
-                            {
-                                "name": "emailAddress",
-                                "value": "test@hotmail.com"
-                            }
-                        ]
-                    }
-                }
-            }
-        }
+      // sned data via ajax
+      $scope.sendData = function() {
+          //$http.get('assets/actions/authorizeNet/charge-credit-card.php').then(function(response) {});
+          $http({method: "POST", data: $scope.authorize, url: 'assets/actions/authorizeNet/charge-credit-card.php'}).
+            then( function(response) {
+              $scope.ajaxResponse = response.data;
+            });
+      }
 
 
 
