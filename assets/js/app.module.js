@@ -10,6 +10,8 @@
       // In html make it so that fields attach to authorize. Use a method to shorten it.
 
 
+
+
       // Item Prices
       $scope.prices = {
         "foursome" : { "price" : 460, "selected" : false},
@@ -83,11 +85,6 @@
         // $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber = "23";
       }
 
-      $scope.checkForm = function() {
-
-      }
-
-
       // Guest list
       $scope.guests = ["","","",""];
 
@@ -116,125 +113,27 @@
 
       // sned data via ajax
       $scope.sendData = function() {
+
+        // Check if form is $scope.isFormValid = function() {
+        if ( true ) {
+        // if ( $scope.adv_golf_outing_form.$valid ) {
+
           //$http.get('assets/actions/authorizeNet/charge-credit-card.php').then(function(response) {});
           $http({method: "POST", data: $scope.authorize, url: 'assets/actions/authorizeNet/charge-credit-card.php'}).
-            then( function(response) {
+            then( function( response ) {
               $scope.ajaxResponse = response.data;
             });
-      }
+        }
+         else {
+          alert("No");
+        }
 
+
+
+
+      }
 
 
     }]);
 
-
 })()
-
-
-/*
-    -- Required Card Data (Backend) --
-
-
-
-
-    -- Optional Card Data to be used (Backend) --
-
-        profile
-        - createProfile : true
-
-        order
-        - invoiceNumber
-        - description
-
-        customer
-        - type : individual, business
-        - id : merchant assiged id. up to 20 characters
-        - email : Customer's valid email
-
-        billTo
-        - firstName
-        - lastName
-        - company
-        - address : customers address
-        - city
-        - state
-        - zip
-        - country
-        - phoneNumber
-
-
-
-        shipTo ( have a "same as billing address" option )
-        - firstName
-        - lastName
-        - company
-        - address
-        - city
-        - state
-        - zip
-        - country : you can type anything here. Just use fixed dropdown
-
-        retail
-        - marketType : 0
-        - deviceType : 8
-
-        userFields ( Information is NOT stored in the transaction )
-        - name
-        - value
-
-
-{
-    "createTransactionRequest": {
-        "merchantAuthentication": {
-            "name": "6VdY4URw86P",
-            "transactionKey": "3b2zDK52bKK8Ax6z"
-        },
-        "refId": "123456",
-        "transactionRequest": {
-            "transactionType": "authCaptureTransaction",
-            "amount": "5",
-            "payment": {
-                "creditCard": {
-                    "cardNumber": "5424000000000015",
-                    "expirationDate": "1220",
-                    "cardCode": "999"
-                }
-            },
-            "billTo": {
-                "firstName": "Ellen",
-                "lastName": "Johnson",
-                "company": "Souveniropolis",
-                "address": "14 Main Street",
-                "city": "Pecan Springs",
-                "state": "TX",
-                "zip": "44628",
-                "country": "USA"
-            },
-            "shipTo": {
-                "firstName": "China",
-                "lastName": "Bayles",
-                "company": "Thyme for Tea",
-                "address": "12 Main Street",
-                "city": "Pecan Springs",
-                "state": "TX",
-                "zip": "44628",
-                "country": "USA"
-            },
-            "userFields": {
-                "userField": [
-                    {
-                        "name": "Foursome Guests",
-                        "value": "Mark Johnson, Lisa Simpson, Ron McDonald, Jessica Alba"
-                    },
-
-                        "name": "favorite_color",
-                        "value": "blue"
-                    },
-                    {
-                        "name":  "Services"
-                    }
-                ]
-            }
-        }
-    }
-} */

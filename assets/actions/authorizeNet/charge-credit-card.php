@@ -1,20 +1,74 @@
 <?php
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
-  $params = json_decode(file_get_contents('php://input'));
-  var_dump($params);
-  die();
-}
+  if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $params = json_decode(file_get_contents('php://input'));
 
-date_default_timezone_set ( "America/Detroit" );
-require 'vendor/autoload.php';
-use net\authorize\api\contract\v1 as AnetAPI;
-use net\authorize\api\controller as AnetController;
+    $advPay_cardNumber = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardNumber;
+    $advPay_expiration = $params->createTransactionRequest->transactionRequest->payment->creditCard->expirationDate;
+    $advPay_amount = $params->createTransactionRequest->transactionRequest->amount;
+    $advPay_invoiceNumber = ""; // Invoice Number isn't going to be used? Make it randomly generated number
+    $advPay_itemDescription = ""; // Not used
+    $advPay_firstName = "";
+    $advPay_lastName = "";
+    $advPay_company = "";
+    $advPay_address = "";
+    $advPay_city = "";
+    $advPay_state = "";
+    $advPay_zipcode = "";
+    $advPay_country = "";
+    $advPay_customerType = "";
 
-define("AUTHORIZENET_LOG_FILE","phplog");
 
-// Common setup for API credentials...Currently on Sandbox
+  }
+
+ die(var_dump($advPay_amount));
+
+
+
+  /*
+    params
+    - createTransactionRequest
+    - - transactionRequest
+    - - - transactionType
+    - - - amount : "number"
+
+  */
+
+  // Card Number
+  // Expiration Date
+  // Invoice Number
+  // Item Description
+
+  // First Name
+  // Last Name
+  // Company
+  // address
+  // city
+  // state
+  // Zipcode
+  // United States
+
+  //Amount
+
+  // Customer Type
+  // Customer ID
+
+  // Guest One
+  // Guest Two
+  // Guest Three
+  // Guest Four
+
+  // Email Address
+
+  date_default_timezone_set ( "America/Detroit" );
+  require 'vendor/autoload.php';
+  use net\authorize\api\contract\v1 as AnetAPI;
+  use net\authorize\api\controller as AnetController;
+
+  define("AUTHORIZENET_LOG_FILE","phplog");
+
+  // Common setup for API credentials...Currently on Sandbox
   $merchantAuthentication = new AnetAPI\MerchantAuthenticationType();
   $merchantAuthentication->setName("6VdY4URw86P");
   $merchantAuthentication->setTransactionKey("3b2zDK52bKK8Ax6z");
@@ -22,10 +76,9 @@ define("AUTHORIZENET_LOG_FILE","phplog");
 
 
 
-
   // Create the payment data for a credit card
   $creditCard = new AnetAPI\CreditCardType();
-  $creditCard->setCardNumber("4111111111111111" );
+  $creditCard->setCardNumber("4111111111111111");
   $creditCard->setExpirationDate( "2038-12");
   $paymentOne = new AnetAPI\PaymentType();
   $paymentOne->setCreditCard($creditCard);
