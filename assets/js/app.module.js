@@ -5,24 +5,20 @@
 
     payApp.controller('PayAppController', ['$scope', '$http', function($scope, $http) {
 
+    // In html make it so that fields attach to authorize. Use a method to shorten it.
 
 
-      // In html make it so that fields attach to authorize. Use a method to shorten it.
-
-
-
-
-      // Item Prices
-      $scope.prices = {
-        "foursome" : { "price" : 460, "selected" : false},
-        "singlePlayer" : { "price" : 115, "selected" : false},
-        "dinnerGuest" : { "price" : 50, "selected" : false},
-        "holeSponsor" : { "price" : 100, "selected" : false},
-        "drinkSponsor" : { "price" : 250, "selected" : false},
-        "goldDinner" : { "price" : 500, "selected" : false},
-        "silverLunch" : { "price" : 350, "selected" : false},
-        "bronzePutting" : { "price" : 250, "selected" : false}
-      };
+    // Item Prices
+    $scope.prices = {
+      "foursome" : { "price" : 460, "selected" : false, "label" : "Foursome"},
+      "singlePlayer" : { "price" : 115, "selected" : false, "label" : "Single Player"},
+      "dinnerGuest" : { "price" : 50, "selected" : false, "label" : "Dinner Guest"},
+      "holeSponsor" : { "price" : 100, "selected" : false, "label" : "Hole Sponsor"},
+      "drinkSponsor" : { "price" : 250, "selected" : false, "label" : "Drink Sponsor"},
+      "goldDinner" : { "price" : 500, "selected" : false, "label" : "Gold Dinner"},
+      "silverLunch" : { "price" : 350, "selected" : false, "label" : "Silver Lunch"},
+      "bronzePutting" : { "price" : 250, "selected" : false, "label" : "Bronze Putting"}
+    };
 
 
       // AUthorize json
@@ -72,6 +68,10 @@
                           {
                               "name": "emailAddress",
                               "value": ""
+                          },
+                          {
+                              "name": "Services",
+                              "value": ""
                           }
                       ]
                   }
@@ -86,28 +86,41 @@
       }
 
       // Guest list
-      $scope.guests = ["","","",""];
+      $scope.guests = ["","",""];
 
       $scope.ajaxResponse = "";
 
-
+      // Updates the total price. Also adds a list of services selected to model
       $scope.updatePrice = function() {
         total = 0;
+        services_selected = [];
 
         for (i in $scope.prices) {
           if($scope.prices[i].selected == true) {
             total += $scope.prices[i].price;
+            services_selected.push($scope.prices[i].label);
           }
         }
 
         $scope.authorize.createTransactionRequest.transactionRequest.amount = total;
+        $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[2].value  = services_selected.toString();
         // $scope.price = total;
       }
 
 
+
+      // Update the list of guests that will be acompanying the main guest.
       $scope.updateGuests = function() {
-        guestsString =  $scope.guests[0] + "," + $scope.guests[1] + "," + $scope.guests[2] + "," + $scope.guests[3];
+
+        guestsString =  $scope.guests[0] + "," + $scope.guests[1] + "," + $scope.guests[2];
         $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[0].value = guestsString;
+
+      }
+
+
+      // Add the products purchase to the list.
+      $scope.updateProductsPurchased = function() {
+
       }
 
 
@@ -124,11 +137,9 @@
               $scope.ajaxResponse = response.data;
             });
         }
-         else {
+        else {
           alert("No");
         }
-
-
 
 
       }

@@ -7,22 +7,41 @@
     $advPay_cardNumber = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardNumber;
     $advPay_expiration = $params->createTransactionRequest->transactionRequest->payment->creditCard->expirationDate;
     $advPay_amount = $params->createTransactionRequest->transactionRequest->amount;
-    $advPay_invoiceNumber = ""; // Invoice Number isn't going to be used? Make it randomly generated number
-    $advPay_itemDescription = ""; // Not used
-    $advPay_firstName = "";
-    $advPay_lastName = "";
-    $advPay_company = "";
-    $advPay_address = "";
-    $advPay_city = "";
-    $advPay_state = "";
-    $advPay_zipcode = "";
-    $advPay_country = "";
-    $advPay_customerType = "";
+    $advPay_invoiceNumber = "250" . substr(time(),3,10); // Invoice Number isn't going to be used? Make it randomly generated number
+    $advPay_itemDescription = $params->createTransactionRequest->transactionRequest->userFields->userField[2]->value; // Not used
+    $advPay_firstName = $params->createTransactionRequest->transactionRequest->billTo->firstName;
+    $advPay_lastName = $params->createTransactionRequest->transactionRequest->billTo->lastName;;
+    $advPay_company = $params->createTransactionRequest->transactionRequest->billTo->company;
+    $advPay_address = $params->createTransactionRequest->transactionRequest->billTo->address;
+    $advPay_city = $params->createTransactionRequest->transactionRequest->billTo->city;
+    $advPay_state = $params->createTransactionRequest->transactionRequest->billTo->state;
+    $advPay_zipcode = $params->createTransactionRequest->transactionRequest->billTo->zip;
+    $advPay_country = $params->createTransactionRequest->transactionRequest->billTo->country;
+    $advPay_email = $params->createTransactionRequest->transactionRequest->userFields->userField[1]->value;
 
+    // Explode it. Add each item to the corrisponding thing.
+    if(!empty($params->createTransactionRequest->transactionRequest->userFields->userField[0]->value)) {
+      $adv_guestsArray = explode(",",$params->createTransactionRequest->transactionRequest->userFields->userField[0]->value);
+      $advPay_guest1 = $adv_guestsArray[0];
+      $advPay_guest2 = $adv_guestsArray[1];
+      $advPay_guest3 = $adv_guestsArray[2];
+      $advPay_guest4 = $adv_guestsArray[3];
+    }
+    else {
+      $advPay_guest1 = "";
+      $advPay_guest2 = "";
+      $advPay_guest3 = "";
+      $advPay_guest4 = "";
+    }
+
+    // $advPay_country = $params->createTransactionRequest->transactionRequest->;
+
+    $advPay_customerType = ""; // not used?
 
   }
 
- die(var_dump($advPay_amount));
+
+
 
 
 
@@ -78,8 +97,10 @@
 
   // Create the payment data for a credit card
   $creditCard = new AnetAPI\CreditCardType();
-  $creditCard->setCardNumber("4111111111111111");
-  $creditCard->setExpirationDate( "2038-12");
+  $creditCard->setCardNumber($advPay_cardNumber);
+  $creditCard->setExpirationDate($advPay_expiration);
+
+  // Add the Payment Data to the object
   $paymentOne = new AnetAPI\PaymentType();
   $paymentOne->setCreditCard($creditCard);
 
@@ -88,21 +109,21 @@
 
   // Create order information*****
   $order = new AnetAPI\OrderType();
-  $order->setInvoiceNumber("10101");
-  $order->setDescription("Golf Shirts");
+  $order->setInvoiceNumber($advPay_invoiceNumber);
+  $order->setDescription($advPay_itemDescription);
 
 
 
 
   // Set the customer's Bill To address **********
   $customerAddress = new AnetAPI\CustomerAddressType();
-  $customerAddress->setFirstName("Ellen");
-  $customerAddress->setLastName("Johnson");
-  $customerAddress->setCompany("Souveniropolis");
-  $customerAddress->setAddress("14 Main Street");
-  $customerAddress->setCity("Pecan Springs");
-  $customerAddress->setState("TX");
-  $customerAddress->setZip("44628");
+  $customerAddress->setFirstName($advPay_firstName);
+  $customerAddress->setLastName($advPay_lastName);
+  $customerAddress->setCompany($advPay_company);
+  $customerAddress->setAddress($advPay_address);
+  $customerAddress->setCity($advPay_city);
+  $customerAddress->setState($advPay_state);
+  $customerAddress->setZip($advPay_zipcode);
   $customerAddress->setCountry("USA");
 
 
@@ -112,7 +133,7 @@
   $customerData = new AnetAPI\CustomerDataType();
   $customerData->setType("individual");
   $customerData->setId("99999456654");
-  $customerData->setEmail("EllenJohnson@example.com");
+  $customerData->setEmail($advPay_email);
 
 
 
@@ -120,32 +141,33 @@
   // but will be echoed back in the response. *****************
   $merchantDefinedField1 = new AnetAPI\UserFieldType();
   $merchantDefinedField1->setName("Guest 1");
-  $merchantDefinedField1->setValue("Rom Mcdonald");
+  $merchantDefinedField1->setValue($advPay_guest1);
 
   $merchantDefinedField2 = new AnetAPI\UserFieldType();
   $merchantDefinedField2->setName("Guest 2");
-  $merchantDefinedField2->setValue("Jonas Richardson");
+  $merchantDefinedField2->setValue($advPay_guest2);
 
   $merchantDefinedField3 = new AnetAPI\UserFieldType();
   $merchantDefinedField3->setName("Guest 3");
-  $merchantDefinedField3->setValue("Ren Polowski");
+  $merchantDefinedField3->setValue($advPay_guest3);
 
   $merchantDefinedField4 = new AnetAPI\UserFieldType();
   $merchantDefinedField4->setName("Guest 4");
-  $merchantDefinedField4->setValue("Justin Thompson");
+  $merchantDefinedField4->setValue($advPay_guest4);
 
   $merchantDefinedField5 = new AnetAPI\UserFieldType();
   $merchantDefinedField5->setName("emailAddress");
-  $merchantDefinedField5->setValue("testemail@hotmail.com");
+  $merchantDefinedField5->setValue($advPay_email);
 
 
 // Create a transaction
   $transactionRequestType = new AnetAPI\TransactionRequestType();
   $transactionRequestType->setTransactionType("authCaptureTransaction");
-  $transactionRequestType->setAmount(151.51);
+  $transactionRequestType->setAmount($advPay_amount);
   $transactionRequestType->setPayment($paymentOne);
   $transactionRequestType->setBillTo($customerAddress);
   $transactionRequestType->setCustomer($customerData);
+  $transactionRequestType->setOrder($order);
   $transactionRequestType->addToUserFields($merchantDefinedField1);
   $transactionRequestType->addToUserFields($merchantDefinedField2);
   $transactionRequestType->addToUserFields($merchantDefinedField3);
@@ -157,6 +179,7 @@
   $request = new AnetAPI\CreateTransactionRequest();
   $request->setMerchantAuthentication($merchantAuthentication);
   $request->setRefId( $refId);
+
   $request->setTransactionRequest($transactionRequestType);
   $controller = new AnetController\CreateTransactionController($request);
   $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
@@ -169,7 +192,13 @@ if ($response != null)
     echo "Charge Credit Card AUTH CODE : " . $tresponse->getAuthCode() . "\n";
     echo "Charge Credit Card TRANS ID  : " . $tresponse->getTransId() . "\n";
   }
-  else
+  elseif ($tresponse != null && $tresponse->getErrors() != null)
+  {
+    echo " Error Code  : " . $tresponse->getErrors()[0]->getErrorCode() . "\n";
+    echo " Error Message : " . $tresponse->getErrors()[0]->getErrorText() . "\n";
+    echo "Charge Credit Card ERROR :  Invalid response\n";
+  }
+   else
   {
     echo "Charge Credit Card ERROR :  Invalid response\n";
   }
@@ -184,6 +213,11 @@ else
 
 
 <?php
+
+
+// --------- Error Code Meanings ------------
+// Error code 6 - Card Number is
+// Error code 8 - Credit Card Expired
 //   require 'vendor/autoload.php';
 //
 //   use net\authorize\api\contract\v1 as AnetAPI;
