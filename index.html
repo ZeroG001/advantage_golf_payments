@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/skeleton.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
 </head>
 <body ng-app="payApp">
 
@@ -50,27 +51,30 @@
 				User Information Form
 
 	 -->
-	 <section>
+	 <section ng-show="tabs[0]">
 
 		 <form novalidate name="adv_golf_outing_form"> <!-- rename to golf-outing-registration-form -->
 
-			 <h2> Registration Form </h2>
+
 
 			 <div class="sk-container">
 
+			 <h2 class="golf-outing-payment-form-header"> Registration Form </h2>
+
 				 <div class="row">
 					 <div class="six columns">
-						 <label> First Name </label>
+
 						 <div class="input-group">
-							 <input class="adv_form_validation adv_form_input" type="text" maxlength="50" name="firstName" ng-change="submitForm()" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
+							 <label for="firstName"> First Name </label>
+							 <input class="adv_form_validation adv_form_input" id="firstName" type="text" maxlength="50" name="firstName" ng-change="submitForm()" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
 						 </div>
 					 </div>
 
 
 					 <div class="six columns">
-						 <label> Last Name </label>
 						 <div class="input-group">
-							 <input class="adv_form_validation adv_form_input" type="text" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
+							 <label for="lastName"> Last Name </label>
+							 <input class="adv_form_validation adv_form_input" id="lastName" type="text" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
 						 </div>
 					 </div>
 				 </div> <!-- row end -->
@@ -78,9 +82,9 @@
 
 				 <div class="row">
 					 <div class="twelve columns">
-						 <label> Email Address </label>
 						 <div class="input-group">
-							 <input class="adv_form_validation adv_form_input" type="email" maxlength="50" name="emailAddress" ng-model="authorize.createTransactionRequest.transactionRequest.userFields.userField[1].value" required>
+							 <label for="email"> Email Address </label>
+							 <input class="adv_form_validation adv_form_input" id="email" type="email" maxlength="50" name="emailAddress" ng-model="authorize.createTransactionRequest.transactionRequest.userFields.userField[1].value" required>
 						 </div>
 					 </div>
 				 </div> <!-- row end -->
@@ -88,49 +92,53 @@
 
 				 <div class="row">
 					 <div class="four columns">
-						 <label> Four Some - $460 </label>
-						 <div class="input-group">
-							 <input type="checkbox" name="Foursome" ng-change="updatePrice()" value="460" ng-model="prices.foursome.selected">
+						 <div class="check-container">
+							 <div class="input-group">
+								 <input type="checkbox" name="Foursome" id="foursome" class="adv_form_checkbox" ng-change="updatePrice()" value="460" ng-model="prices.foursome.selected">
+								 <label for="foursome"> Four Some - $460 </label>
+							 </div>
+					 	</div>
+					 </div>
+
+					 <div class="four columns">
+							 <div class="check-container">
+								 <div class="input-group">
+									 <input type="checkbox" id="singleplayer" class="adv_form_checkbox" name="Single Player" ng-change="updatePrice()" value="115" ng-model="prices.singlePlayer.selected">
+									 <label for="singleplayer"> Single Player - $115 </label>
+								 </div>
 						 </div>
 					 </div>
 
 					 <div class="four columns">
-						 <label> Single Player - $115 </label>
 						 <div class="input-group">
-							 <input type="checkbox" name="Single Player" ng-change="updatePrice()" value="115" ng-model="prices.singlePlayer.selected">
-						 </div>
-					 </div>
-
-					 <div class="four columns">
-						 <label> Dinner Guest - $50 </label>
-						 <div class="input-group">
-							 <input type="checkbox" name="Dinner Guest" ng-change="updatePrice()" value="50" ng-model="prices.dinnerGuest.selected">
+							 <input type="checkbox" name="Dinner Guest" class="adv_form_checkbox" id="dinnerguest" ng-change="updatePrice()" value="50" ng-model="prices.dinnerGuest.selected">
+							 <label for="dinnerguest"> Dinner Guest - $50 </label>
 						 </div>
 					 </div>
 				 </div> <!-- row end -->
 
 
 				 <!-- ========= Guest List =========  -->
-				 <div ng-show="prices.foursome.selected">
+				 <div ng-show="prices.foursome.selected" class="guest-container">
 					 <div class="row">
-						 <div class="three columns">
-							 <label> Guest One </label>
+						 <div class="four columns">
 							 <div class="input-group">
-								 <input type="text" name="guestOne" ng-change="updateGuests()" ng-model="guests[0]">
+								 <label for="guestone"> Guest One </label>
+								 <input type="text" class="adv_form_input" id="guestone" name="guestOne" ng-change="updateGuests()" ng-model="guests[0]">
 							 </div>
 						 </div>
 
-						 <div class="three columns">
-							 <label> Guest Two </label>
+						 <div class="four columns">
 							 <div class="input-group">
-								 <input type="text" name="guestTwo" ng-change="updateGuests()" ng-model="guests[1]">
+								 <label for="guesttwo"> Guest Two </label>
+								 <input type="text" class="adv_form_input" id="guesttwo" name="guestTwo" ng-change="updateGuests()" ng-model="guests[1]">
 							 </div>
 						 </div>
 
-						 <div class="three columns">
-							 <label> Guest Three </label>
+						 <div class="four columns">
 							 <div class="input-group">
-								 <input type="text" name="guestThree" ng-change="updateGuests()" ng-model="guests[2]">
+								 <label for="guestthree"> Guest Three </label>
+								 <input type="text" class="adv_form_input" id="guestthree" name="guestThree" ng-change="updateGuests()" ng-model="guests[2]">
 							 </div>
 						 </div>
 
@@ -148,42 +156,53 @@
 
 				 <div class="row">
 					 <div class="four columns">
-						 <label> Drink Sponsor - $250 </label>
-						 <div class="input-group">
-							 <input type="checkbox" name="drinkSponsor" ng-change="updatePrice()" value="250" ng-model="prices.drinkSponsor.selected">
-						 </div>
+						 <div class="check-container">
+							 <div class="input-group">
+								 <input type="checkbox" id="drinksponsor" class="adv_form_checkbox" name="drinkSponsor" ng-change="updatePrice()" value="250" ng-model="prices.drinkSponsor.selected">
+								 <label for="drinksponsor"> Drink Sponsor - $250 </label>
+							 </div>
+					 	</div>
 					 </div>
 
 					 <div class="four columns">
-						 <label> Hole Sponsor - $100 </label>
-						 <div class="input-group">
-							 <input type="checkbox" name="holeSponsor" ng-change="updatePrice()" value="100" ng-model="prices.holeSponsor.selected">
-						 </div>
+						 <div class="check-container">
+							 <div class="input-group">
+								 <input type="checkbox" id="holesponsor" class="adv_form_checkbox" name="holeSponsor" ng-change="updatePrice()" value="100" ng-model="prices.holeSponsor.selected">
+								 <label for="holesponsor"> Hole Sponsor - $100 </label>
+							 </div>
+					 	</div>
 					 </div>
 
 
 					 <div class="four columns">
-						 <label> Gold/Dinner - $500 </label>
-						 <div class="input-group">
-							 <input type="checkbox" name="goldDinner" ng-change="updatePrice()" value="460" ng-model="prices.goldDinner.selected">
-						 </div>
+						 <div class="check-container">
+							 <div class="input-group">
+								 <input type="checkbox" id="golddinner" class="adv_form_checkbox" name="goldDinner" ng-change="updatePrice()" value="460" ng-model="prices.goldDinner.selected">
+								 <label for="golddinner"> Gold/Dinner - $500 </label>
+							 </div>
+					 	</div>
 					 </div>
 				 </div> <!-- row end -->
 
 
 				 <div class="row">
 					 <div class="four columns">
-						 <div class="input-group">
-							 <label> Silver/Lunch - $350 </label>
-							 <input type="checkbox" name="fourSome" ng-change="updatePrice()" value="350" ng-model="prices.silverLunch.selected">
+						 	<div class="check-container">
+							 <div class="input-group">
+								 <input type="checkbox" class="adv_form_checkbox" id="silverlunch" name="silverLunch" ng-change="updatePrice()" value="350" ng-model="prices.silverLunch.selected">
+								 <label for="silverlunch"> Silver/Lunch - $350 </label>
+							 </div>
 						 </div>
 					 </div>
 
+
 					 <div class="four columns">
-						 <label> Bronce/Putting - $250 </label>
+						 <div class="check-container">
 						 <div class="input-group">
-							 <input type="checkbox" name="bronzePutting" ng-change="updatePrice()" value="250" ng-model="prices.bronzePutting.selected">
+							 <input type="checkbox" class="adv_form_checkbox" id="bronzeputting" name="bronzePutting" ng-change="updatePrice()" value="250" ng-model="prices.bronzePutting.selected">
+							 <label for="bronzeputting"> Bronze/Putting - $250 </label>
 						 </div>
+					 	</div>
 					 </div>
 
 					 <div class="four columns"> <!-- EMPTY ( on purpose ) --> </div>
@@ -191,7 +210,7 @@
 
 
 				 <div class="form-button-container">
-					 <button> Next </button>
+					 <button ng-click="nextTab(0)"> Next </button>
 				 </div>
 
 		 	</form>
@@ -201,76 +220,86 @@
 	 </section>
 
 
-	 <section>
+	 <section ng-show="tabs[1]">
 
 		 <div class="sk-container">
 
 			 <form novalidate name="golf-outing-payment-form">
 
 
-				 <h2> Payment Form </h2>
+				 <h2 class="golf-outing-payment-form-header"> Payment Form </h2>
 
 				 <div class="row">
 					 <div class="twelve columns">
-						 <label> Card Number </label>
+
+
 						 <div class="input-group">
-							 <input type="text" class="adv_form_validation" name="cardNumber" ng-pattern="/^\d{16}$/" placeholder="xxxx xxxx xxxx xxxx" ng-minlength="16" ng-maxlength="16" maxlength="16" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber" required>
+							 <label for="cardnumber"> Card Number </label>
+							 <input type="text" id="cardnumber" class="adv_form_validation adv_form_input" name="cardNumber" ng-pattern="/^\d{16}$/" placeholder="xxxx xxxx xxxx xxxx" ng-minlength="16" ng-maxlength="16" maxlength="16" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber" required>
 							</div>
 						</div>
 					</div>
 
+
 					<div class="row">
 						<div class="six columns">
-						 <label> Expiration Date </label>
  						 <div class="input-group">
-				 		 	<input type="text" class="adv_form_validation" name="expirationDate" ng-pattern="/^\d{2}\-\d{4}$/" ng-minlength="7" maxlength="7" ng-maxlength="7" placeholder="MM-YYYY" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate" required>
+							<label for="expirationdate"> Expiration Date </label>
+				 		 	<input type="text" id="expirationdate" class="adv_form_validation adv_form_input" name="expirationDate" ng-pattern="/^\d{2}\-\d{4}$/" ng-minlength="7" maxlength="7" ng-maxlength="7" placeholder="MM-YYYY" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate" required>
  						 </div>
  						</div>
 
+
 						<div class="six columns">
-							<label> CVV Code </label>
 							<div class="input-group">
-						  	<input type="text" class="adv_form_validation" name="cardCode" ng-pattern="/^\d{3}$/" placeholder="CVV" ng-minlength="3" ng-maxlength="3" maxlength="3" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardCode" required>
+								<label for="cardcode"> CVV Code </label>
+						  	<input type="text" id="cardcode" class="adv_form_validation adv_form_input" name="cardCode" ng-pattern="/^\d{3}$/" placeholder="CVV" ng-minlength="3" ng-maxlength="3" maxlength="3" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardCode" required>
 							</div>
 						</div>
 				 	</div> <!-- row end -->
 
+
 					<div class="row">
 						<div class="six columns">
-							<label> First Name </label>
 							<div class="input-group">
-						  	<input type="text" class="adv_form_validation" maxlength="50" name="firstName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
+								<label for="bfirstname"> First Name </label>
+						  	<input type="text" id="bfirstname" class="adv_form_validation adv_form_input" maxlength="50" name="firstName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
 							</div>
 						</div>
 
+
 						<div class="six columns">
-							<label> Last Name </label>
 							<div class="input-group">
-								<input type="text" class="adv_form_validation" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
+								<label for="blastname"> Last Name </label>
+								<input type="text" id="blastname" class="adv_form_validation adv_form_input" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
 							</div>
 						</div>
 					</div>
+
 
 					<div class="row">
 						<div class="twelve columns">
-							<label> Address </label>
 							<div class="input-group">
-								<input type="text" name="address" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.address">
+								<label for="address"> Address </label>
+								<input type="text" id="address" class="adv_form_input" name="address" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.address">
 							</div>
 						</div>
 					</div>
 
+
 					<div class="row">
 						<div class="six columns">
-							<label> City </label>
 							<div class="input-group">
-								<input type="text" name="city" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.city">
+								<label for="city"> City </label>
+								<input type="text" name="city" class="adv_form_input" id="city" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.city">
 							</div>
 						</div>
 
+
 						<div class="six columns">
 							<div class="input-group">
-								<select name="state" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.state">
+								<label for="state"> State </label>
+								<select name="state" id="state" class="adv_form_input" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.state">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
@@ -330,43 +359,50 @@
 					<div class="row">
 
 						<div class="six columns">
-							<label> Zipcode </label>
 							<div class="input-group">
-								<input type="text" name="zip" maxlength="5" ng-minlength="5" ng-maxlength="5" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.zip">
+								<label for="zipcode"> Zipcode </label>
+								<input type="text" name="zip" class="adv_form_input" id="zipcode" maxlength="5" ng-minlength="5" ng-maxlength="5" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.zip">
 							</div>
 						</div>
 
 						<div class="six columns">
-							<label for="company"> Company </label> <!-- might need to remove this -->
 							<div class="input-group">
-								<input type="text" name="company" id="company" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.company">
+								<label for="company"> Company </label>
+								<input type="text" name="company" class="adv_form_input" id="company" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.company">
 							</div>
 						</div>
 					</div> <!-- row end -->
 
 
 					<!-- Validate this form when the button is clicked and go next. -->
-					<button> Next </button>
+					<div class="form-button-container">
+ 					 <button ng-click="nextTab(1)"> Next </button>
+ 				 </div>
+
+				 <div class="form-button-container">
+					 <button ng-click="prevTab(1)"> Prev </button>
+				 </div>
+
 
 			 </form>
 		 </div> <!-- Container end -->
 	 </section> <!-- Section End -->
 
-	 <section>
+	 <section ng-show="tabs[2]">
 
 		 <div class="sk-container">
 
 			 	<div class="detail-container">
 					<h3 class="detail-header"> Total: </h3>
-					<div class="detail-price"> {{ authorize.createTransactionRequest.transactionRequest.amount }} </div>
+					<div class="detail-price"> $ {{ authorize.createTransactionRequest.transactionRequest.amount }} </div>
 				</div>
 
 				 <div class="detail-container">
-				 	<h3 class="detail-header"> Services Paid: </h3>
+				 	<h3 class="detail-header"> Services: </h3>
 
-					<ul ng-repeat="service in prices | filter: 'selected' }">
+					<ul ng-repeat="service in prices">
 
-						<li> {{ service.label }} </li>
+						<li ng-show="service.selected == true"> {{ service.label }} </li>
 					</ul>
 				</div>
 
@@ -381,34 +417,31 @@
 				</div>
 
 
-				<div class="form-button-container">
+				<div class="form-button-container" ng-click="sendData()">
 					<button> Purchase </button>
 				</div>
 
 
+				<div class="form-button-container">
+					<button ng-click="prevTab(2)"> prev </button>
+				</div>
+
+
 			 </div>
-<pre> {{ authorize | json }} </pre>
+			 <pre> {{ authorize | json }} </pre>
 		 </div> <!-- container and controller end -->
-
 	 </section>
-
-
 
 			<button id="myButton" ng-click="sendData()"> Send Credit Card Info </button>
 
-
-
-
-
-
 	</div>
-
 
 
 </body> <!-- end controller -->
 
 <script type="text/javascript" src='assets/js/angular/angular.min.js'></script>
 <script type="text/javascript" src='assets/js/app.module.js'></script>
+
 
 <!--- Get Payment Form Module -->
 <script type="text/javascript" src='assets/js/payment-form/payment-form.module.js'> </script>

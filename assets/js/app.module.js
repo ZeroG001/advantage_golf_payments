@@ -20,6 +20,18 @@
       "bronzePutting" : { "price" : 250, "selected" : false, "label" : "Bronze Putting"}
     };
 
+    $scope.tabs = [true, false, false];
+
+    //index = index number of current tab
+    $scope.nextTab = function(index) {
+      $scope.tabs[index] = false;
+      $scope.tabs[index + 1] = true;
+    }
+
+    $scope.prevTab = function(index) {
+      $scope.tabs[index] = false;
+      $scope.tabs[index - 1] = true;
+    }
 
       // AUthorize json
       $scope.authorize = {
@@ -31,7 +43,7 @@
               "refId": "123456",
               "transactionRequest": {
                   "transactionType": "authCaptureTransaction",
-                  "amount": "5",
+                  "amount": "0",
                   "payment": {
                       "creditCard": {
                           "cardNumber": "",
@@ -148,3 +160,4 @@
     }]);
 
 })()
+

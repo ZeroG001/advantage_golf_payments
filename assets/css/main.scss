@@ -1,0 +1,93 @@
+html {
+  font-size: 14px;
+}
+
+.adv_form_input {
+  width: 100%;
+}
+
+.golf-outing-payment-form-header {
+  font-size: 1.728rem;
+}
+
+.input-group label {
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.check-container {
+  padding: 10px 0px;
+}
+
+
+.input-group input {
+  font-size: 0.833rem;
+}
+
+.arrow-up {
+
+}
+
+
+.guest-container {
+  padding: 16px 10px 10px 10px;
+  margin-bottom: 6px;
+  background-color: #eaeaea;
+  position: relative;
+  margin-top: 4px;
+}
+
+
+.guest-container:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -8px;
+  left: 0px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 8px solid #eaeaea;
+}
+
+/* Checkbox Styles
+------------------------------------------- */
+.adv_form_checkbox[type="checkbox"] {
+    display: none;
+}
+
+
+.adv_form_checkbox[type="checkbox"]:not(:checked) + label,
+.adv_form_checkbox[type="checkbox"]:checked + label {
+  content: "";
+  position: relative;
+  padding: 16px 12px;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  // display: inline-block;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+}
+
+.adv_form_checkbox[type="checkbox"]:not(:checked) + label {}
+.adv_form_checkbox[type="checkbox"]:checked + label {
+		background-color: #4d9ae8;
+}
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
