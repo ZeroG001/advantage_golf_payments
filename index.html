@@ -15,35 +15,32 @@
 
 	<style>
 
-		/* testing styles */
-		.adv_form_validation.ng-untouched {
-			background-color: initial !important;
-		}
-
-		.adv_form_validation.ng-dirty.ng-invalid {
-			background-color: #f3cccc;
-		}
-
-		.adv_form_validation.ng-valid {
-			background-color: initial;
-		}
-
-		.alert {
-			color: blue;
-			background-color:gray;
-		}
 
 
 	</style>
 
 
-	<h5> {{ 1 + 1 }} - Is angular working? </h5>
-
 	<div ng-controller="PayAppController as arpa">
 
 		<!-- I would like to add an email field in somewhere -->
 
-		<div class="alert"> {{ ajaxResponse }} </div>
+		<section>
+			<div class="hero-container">
+
+				<div class="content-container">
+					<h1> Advantage Realty Golf Outing </h1>
+
+					<div class="image-container">
+						<img src="assets/img/advantage_forgotten_harvest_logo.png">
+					</div>
+				</div>
+
+
+			</div>
+
+		</section>
+
+		<div class="alert" class="ng-hide"> {{ ajaxResponse }} </div>
 
 
 		<!--
@@ -53,13 +50,15 @@
 	 -->
 	 <section ng-show="tabs[0]">
 
-		 <form novalidate name="adv_golf_outing_form"> <!-- rename to golf-outing-registration-form -->
 
 
 
-			 <div class="sk-container">
 
-			 <h2 class="golf-outing-payment-form-header"> Registration Form </h2>
+			 <div class="sk-container adv-grid-container">
+				 <!-- rename to golf-outing-registration-form -->
+				 <form novalidate name="adv_golf_outing_form">
+
+			 	 <h2 class="golf-outing-payment-form-header"> Registration Form </h2>
 
 				 <div class="row">
 					 <div class="six columns">
@@ -110,10 +109,12 @@
 					 </div>
 
 					 <div class="four columns">
+						 <div class="check-container">
 						 <div class="input-group">
 							 <input type="checkbox" name="Dinner Guest" class="adv_form_checkbox" id="dinnerguest" ng-change="updatePrice()" value="50" ng-model="prices.dinnerGuest.selected">
 							 <label for="dinnerguest"> Dinner Guest - $50 </label>
 						 </div>
+					 </div>
 					 </div>
 				 </div> <!-- row end -->
 
@@ -222,7 +223,7 @@
 
 	 <section ng-show="tabs[1]">
 
-		 <div class="sk-container">
+		 <div class="sk-container adv-grid-container">
 
 			 <form novalidate name="golf-outing-payment-form">
 
@@ -390,7 +391,7 @@
 
 	 <section ng-show="tabs[2]">
 
-		 <div class="sk-container">
+		 <div class="sk-container adv-grid-container">
 
 			 	<div class="detail-container">
 					<h3 class="detail-header"> Total: </h3>
@@ -428,11 +429,11 @@
 
 
 			 </div>
-			 <pre> {{ authorize | json }} </pre>
+			 <!-- <pre> {{ authorize | json }} </pre> -->
 		 </div> <!-- container and controller end -->
 	 </section>
 
-			<button id="myButton" ng-click="sendData()"> Send Credit Card Info </button>
+			<!-- <button id="myButton" ng-click="sendData()"> Send Credit Card Info </button> -->
 
 	</div>
 
@@ -458,3 +459,4 @@
                      
                         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                            

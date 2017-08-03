@@ -2,22 +2,31 @@
 
 
   if($_SERVER['REQUEST_METHOD'] == "POST") {
+
     $params = json_decode(file_get_contents('php://input'));
 
-    $advPay_cardNumber = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardNumber;
-    $advPay_expiration = $params->createTransactionRequest->transactionRequest->payment->creditCard->expirationDate;
-    $advPay_amount = $params->createTransactionRequest->transactionRequest->amount;
-    $advPay_invoiceNumber = "250" . substr(time(),3,10); // Invoice Number isn't going to be used? Make it randomly generated number
-    $advPay_itemDescription = $params->createTransactionRequest->transactionRequest->userFields->userField[2]->value; // Not used
-    $advPay_firstName = $params->createTransactionRequest->transactionRequest->billTo->firstName;
-    $advPay_lastName = $params->createTransactionRequest->transactionRequest->billTo->lastName;;
-    $advPay_company = $params->createTransactionRequest->transactionRequest->billTo->company;
-    $advPay_address = $params->createTransactionRequest->transactionRequest->billTo->address;
-    $advPay_city = $params->createTransactionRequest->transactionRequest->billTo->city;
-    $advPay_state = $params->createTransactionRequest->transactionRequest->billTo->state;
-    $advPay_zipcode = $params->createTransactionRequest->transactionRequest->billTo->zip;
-    $advPay_country = $params->createTransactionRequest->transactionRequest->billTo->country;
-    $advPay_email = $params->createTransactionRequest->transactionRequest->userFields->userField[1]->value;
+    try {
+
+      $advPay_cardNumber = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardNumber;
+      $advPay_expiration = $params->createTransactionRequest->transactionRequest->payment->creditCard->expirationDate;
+      $advPay_amount = $params->createTransactionRequest->transactionRequest->amount;
+      $advPay_invoiceNumber = "250" . substr(time(),3,10); // Invoice Number isn't going to be used? Make it randomly generated number
+      $advPay_itemDescription = $params->createTransactionRequest->transactionRequest->userFields->userField[2]->value; // Not used
+      $advPay_firstName = $params->createTransactionRequest->transactionRequest->billTo->firstName;
+      $advPay_lastName = $params->createTransactionRequest->transactionRequest->billTo->lastName;;
+      $advPay_company = $params->createTransactionRequest->transactionRequest->billTo->company;
+      $advPay_address = $params->createTransactionRequest->transactionRequest->billTo->address;
+      $advPay_city = $params->createTransactionRequest->transactionRequest->billTo->city;
+      $advPay_state = $params->createTransactionRequest->transactionRequest->billTo->state;
+      $advPay_zipcode = $params->createTransactionRequest->transactionRequest->billTo->zip;
+      $advPay_country = $params->createTransactionRequest->transactionRequest->billTo->country;
+      $advPay_email = $params->createTransactionRequest->transactionRequest->userFields->userField[1]->value;
+    }
+    catch (Exception $e) {
+      echo "Field Filled out incorrectly";
+    }
+
+
 
     // Explode it. Add each item to the corrisponding thing.
     if(!empty($params->createTransactionRequest->transactionRequest->userFields->userField[0]->value)) {
