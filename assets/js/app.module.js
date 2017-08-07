@@ -129,11 +129,62 @@
 
       }
 
+      // Check if the registration form is valid
+      $scope.checkRegistrationForm = function(index) {
+        if ( $scope.golf_outing_registration_form.$valid ) {
+          $scope.tabs[index] = false;
+          $scope.tabs[index + 1] = true;
 
-      // Add the products purchase to the list.
-      $scope.updateProductsPurchased = function() {
+        }
+      }
+
+      // Check if at least one of the checkboxes are selected.
+      $scope.checkRegistrationCheckField = function() {
+        for (i in $scope.prices) {
+          if ( $scope.prices[i].selected == true ) {
+            return false;
+          } else {
+            continue;
+          }
+        }
+        return true;
+    }
+
+      // Check valid form field on Registration Form
+      $scope.checkRegistrationField = function(fieldName) {
+
+        // When field is DIRTY and INVALID
+        if( $scope.golf_outing_registration_form[fieldName].$invalid && $scope.golf_outing_registration_form[fieldName].$dirty ||
+            $scope.golf_outing_registration_form.$invalid && $scope.golf_outing_registration_form.$submitted  ) {
+
+          return true;
+        }
+        else {
+            return false;
+        }
 
       }
+
+
+      $scope.checkPaymentForm = function(index) {
+        if ( $scope.golf_outing_payment_form.$valid ) {
+          $scope.tabs[index] = false;
+          $scope.tabs[index + 1] = true;
+
+        }
+      }
+
+      // Check valid form field on payment form
+      $scope.paymentCheckField = function(fieldName) {
+        if( $scope.golf_outing_payment_form[fieldName].$invalid && $scope.golf_outing_payment_form[fieldName].$dirty ||
+            $scope.golf_outing_payment_form.$invalid && $scope.golf_outing_payment_form.$submitted  ) {
+          return true;
+        }
+        else {
+            return false;
+        }
+      }
+
 
 
       // sned data via ajax
@@ -160,4 +211,3 @@
     }]);
 
 })()
-

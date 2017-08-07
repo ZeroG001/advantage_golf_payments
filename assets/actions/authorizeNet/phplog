@@ -14882,3 +14882,1162 @@
  Thu, 03 Aug 2017 16:07:54 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1501790873</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>SABYDX</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027582783</transId><refTransID /><transHash>80A6A060AFAB862EC501ED0C954116A6</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value>First Guest</value></userField><userField><name>Guest 2</name><value>Second Guest</value></userField><userField><name>Guest 3</name><value>third guest</value></userField><userField><name>Guest 4</name></userField><userField><name>emailAddress</name><value>mtest@hotmail.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
  Thu, 03 Aug 2017 16:07:54 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
  Thu, 03 Aug 2017 16:07:54 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 14:19:42 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 460
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => 
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => 
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502129982
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Foursome
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => ZeroG001@hotmail.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => BLayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => One
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => teo
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => three
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 4
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [4] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => ZeroG001@hotmail.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502129982
+)
+
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502129982]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>460</amount>
+    <payment>
+      <creditCard>
+        <cardNumber><![CDATA[]]></cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502129982]]></invoiceNumber>
+      <description><![CDATA[Foursome]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[ZeroG001@hotmail.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[BLayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[One]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[teo]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[three]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 4]]></name>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[ZeroG001@hotmail.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ErrorResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><messages><resultCode>Error</resultCode><message><code>E00003</code><text>The 'AnetApi/xml/v1/schema/AnetApiSchema.xsd:cardNumber' element is invalid - The value XX is invalid according to its datatype 'String' - The actual length is less than the MinLength value.</text></message></messages></ErrorResponse>
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 14:19:42 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 16:03:05 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 115
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx-1111
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502136185
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Single Player
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => blayneholland@outlook.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => Blayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 4
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [4] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => blayneholland@outlook.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502136185
+)
+
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502136185]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>115</amount>
+    <payment>
+      <creditCard>
+        <cardNumber>xxxx-1111</cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502136185]]></invoiceNumber>
+      <description><![CDATA[Single Player]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[blayneholland@outlook.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[Blayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 4]]></name>
+        <value><![CDATA[]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[blayneholland@outlook.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 16:03:05 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 16:03:06 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1502136185</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>DUVA2U</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027725175</transId><refTransID /><transHash>5BE93900C59E078781AC4F1AC4870D03</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value /></userField><userField><name>Guest 2</name><value /></userField><userField><name>Guest 3</name><value /></userField><userField><name>Guest 4</name><value /></userField><userField><name>emailAddress</name><value>blayneholland@outlook.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
+ Mon, 07 Aug 2017 16:03:06 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 16:03:06 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 16:06:23 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 710
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx-1111
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502136383
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Foursome,Drink Sponsor
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => blayneholland@outlook.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => Blayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest One
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Two
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Three
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 4
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [4] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => blayneholland@outlook.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502136383
+)
+
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502136383]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>710</amount>
+    <payment>
+      <creditCard>
+        <cardNumber>xxxx-1111</cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502136383]]></invoiceNumber>
+      <description><![CDATA[Foursome,Drink Sponsor]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[blayneholland@outlook.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[Blayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[Guest One]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[Guest Two]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[Guest Three]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 4]]></name>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[blayneholland@outlook.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 16:06:23 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 16:06:24 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1502136383</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>L860BU</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027725265</transId><refTransID /><transHash>88AB1D20180957C8EB68B7EFD4A23770</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value>Guest One</value></userField><userField><name>Guest 2</name><value>Guest Two</value></userField><userField><name>Guest 3</name><value>Guest Three</value></userField><userField><name>Guest 4</name></userField><userField><name>emailAddress</name><value>blayneholland@outlook.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
+ Mon, 07 Aug 2017 16:06:24 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 16:06:24 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 16:07:35 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 575
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx-1111
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502136455
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Foursome,Single Player
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => blayneholland@outlook.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => Blayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest one
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Two
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Three
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 4
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => 
+                        )
+
+                    [4] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => blayneholland@outlook.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502136455
+)
+
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502136455]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>575</amount>
+    <payment>
+      <creditCard>
+        <cardNumber>xxxx-1111</cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502136455]]></invoiceNumber>
+      <description><![CDATA[Foursome,Single Player]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[blayneholland@outlook.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[Blayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[Guest one]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[Guest Two]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[Guest Three]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 4]]></name>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[blayneholland@outlook.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1502136455</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>SGR2UM</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027725309</transId><refTransID /><transHash>EF491DAAEBD8CD6B07EF073CB970713F</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value>Guest one</value></userField><userField><name>Guest 2</name><value>Guest Two</value></userField><userField><name>Guest 3</name><value>Guest Three</value></userField><userField><name>Guest 4</name></userField><userField><name>emailAddress</name><value>blayneholland@outlook.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 16:07:35 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 16:14:03 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 575
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx-1111
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502136843
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Foursome,Single Player
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => blayneholland@outlook.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => Blayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest one
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Two
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Three
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => blayneholland@outlook.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502136843
+)
+
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502136843]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>575</amount>
+    <payment>
+      <creditCard>
+        <cardNumber>xxxx-1111</cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502136843]]></invoiceNumber>
+      <description><![CDATA[Foursome,Single Player]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[blayneholland@outlook.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[Blayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[Guest one]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[Guest Two]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[Guest Three]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[blayneholland@outlook.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 16:14:03 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 07 Aug 2017 16:14:07 -0400 DEBUG : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 575
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\PaymentType Object
+                (
+                    [creditCard:net\authorize\api\contract\v1\PaymentType:private] => net\authorize\api\contract\v1\CreditCardType Object
+                        (
+                            [cardCode:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [isPaymentToken:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cryptogram:net\authorize\api\contract\v1\CreditCardType:private] => 
+                            [cardNumber:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx-1111
+                            [expirationDate:net\authorize\api\contract\v1\CreditCardSimpleType:private] => xxxx
+                        )
+
+                    [bankAccount:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [trackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [encryptedTrackData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [payPal:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [opaqueData:net\authorize\api\contract\v1\PaymentType:private] => 
+                    [emv:net\authorize\api\contract\v1\PaymentType:private] => 
+                )
+
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [terminalNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\OrderType Object
+                (
+                    [invoiceNumber:net\authorize\api\contract\v1\OrderType:private] => 2502136847
+                    [description:net\authorize\api\contract\v1\OrderType:private] => Foursome,Single Player
+                )
+
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerDataType Object
+                (
+                    [type:net\authorize\api\contract\v1\CustomerDataType:private] => individual
+                    [id:net\authorize\api\contract\v1\CustomerDataType:private] => 99999456654
+                    [email:net\authorize\api\contract\v1\CustomerDataType:private] => blayneholland@outlook.com
+                    [driversLicense:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                    [taxId:net\authorize\api\contract\v1\CustomerDataType:private] => 
+                )
+
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerAddressType Object
+                (
+                    [phoneNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [faxNumber:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [email:net\authorize\api\contract\v1\CustomerAddressType:private] => 
+                    [firstName:net\authorize\api\contract\v1\NameAndAddressType:private] => Blayne
+                    [lastName:net\authorize\api\contract\v1\NameAndAddressType:private] => Holland
+                    [company:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [address:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [city:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [state:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [zip:net\authorize\api\contract\v1\NameAndAddressType:private] => 
+                    [country:net\authorize\api\contract\v1\NameAndAddressType:private] => USA
+                )
+
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => Array
+                (
+                    [0] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 1
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest one
+                        )
+
+                    [1] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 2
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Two
+                        )
+
+                    [2] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => Guest 3
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => Guest Three
+                        )
+
+                    [3] => net\authorize\api\contract\v1\UserFieldType Object
+                        (
+                            [name:net\authorize\api\contract\v1\UserFieldType:private] => emailAddress
+                            [value:net\authorize\api\contract\v1\UserFieldType:private] => blayneholland@outlook.com
+                        )
+
+                )
+
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 6VdY4URw86P
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1502136847
+)
+
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 75) -  Url: https://apitest.authorize.net/xml/v1/request.api
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[6VdY4URw86P]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1502136847]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>575</amount>
+    <payment>
+      <creditCard>
+        <cardNumber>xxxx-1111</cardNumber>
+        <expirationDate>xxxx</expirationDate>
+      </creditCard>
+    </payment>
+    <order>
+      <invoiceNumber><![CDATA[2502136847]]></invoiceNumber>
+      <description><![CDATA[Foursome,Single Player]]></description>
+    </order>
+    <customer>
+      <type><![CDATA[individual]]></type>
+      <id><![CDATA[99999456654]]></id>
+      <email><![CDATA[blayneholland@outlook.com]]></email>
+    </customer>
+    <billTo>
+      <firstName><![CDATA[Blayne]]></firstName>
+      <lastName><![CDATA[Holland]]></lastName>
+      <company><![CDATA[]]></company>
+      <address><![CDATA[]]></address>
+      <city><![CDATA[]]></city>
+      <state><![CDATA[]]></state>
+      <zip><![CDATA[]]></zip>
+      <country><![CDATA[USA]]></country>
+    </billTo>
+    <userFields>
+      <userField>
+        <name><![CDATA[Guest 1]]></name>
+        <value><![CDATA[Guest one]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 2]]></name>
+        <value><![CDATA[Guest Two]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[Guest 3]]></name>
+        <value><![CDATA[Guest Three]]></value>
+      </userField>
+      <userField>
+        <name><![CDATA[emailAddress]]></name>
+        <value><![CDATA[blayneholland@outlook.com]]></value>
+      </userField>
+    </userFields>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 07 Aug 2017 16:14:07 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1502136847</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>6B40RG</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027725407</transId><refTransID /><transHash>B07C83E4E7DC5AB185E07EE54211D22B</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value>Guest one</value></userField><userField><name>Guest 2</name><value>Guest Two</value></userField><userField><name>Guest 3</name><value>Guest Three</value></userField><userField><name>emailAddress</name><value>blayneholland@outlook.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [_sendRequest] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1502136843</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><transactionResponse><responseCode>1</responseCode><authCode>GZIMKY</authCode><avsResultCode>Y</avsResultCode><cvvResultCode>P</cvvResultCode><cavvResultCode>2</cavvResultCode><transId>60027725409</transId><refTransID /><transHash>97C2895CA018B04E55513FD7A49A6F10</transHash><testRequest>0</testRequest><accountNumber>XXXX1111</accountNumber><accountType>Visa</accountType><messages><message><code>1</code><description>This transaction has been approved.</description></message></messages><userFields><userField><name>Guest 1</name><value>Guest one</value></userField><userField><name>Guest 2</name><value>Guest Two</value></userField><userField><name>Guest 3</name><value>Guest Three</value></userField><userField><name>emailAddress</name><value>blayneholland@outlook.com</value></userField></userFields><transHashSha2 /></transactionResponse></createTransactionResponse>
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 07 Aug 2017 16:14:09 -0400 INFO : [execute] (/var/www/html/advantage_golf_payment/assets/actions/authorizeNet/vendor/authorizenet/authorizenet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 130) - Response De-Serialization End

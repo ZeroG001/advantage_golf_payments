@@ -13,11 +13,6 @@
 </head>
 <body ng-app="payApp">
 
-	<style>
-
-
-
-	</style>
 
 
 	<div ng-controller="PayAppController as arpa">
@@ -50,13 +45,9 @@
 	 -->
 	 <section ng-show="tabs[0]">
 
-
-
-
-
 			 <div class="sk-container adv-grid-container">
-				 <!-- rename to golf-outing-registration-form -->
-				 <form novalidate name="adv_golf_outing_form">
+
+				 <form novalidate name="golf_outing_registration_form">
 
 			 	 <h2 class="golf-outing-payment-form-header"> Registration Form </h2>
 
@@ -64,15 +55,16 @@
 					 <div class="six columns">
 
 						 <div class="input-group">
-							 <label for="firstName"> First Name </label>
+							 <label for="firstName"> First Name <span class="adv_form_validation_message" ng-show="checkRegistrationField('firstName')"> * required </span> </label>
 							 <input class="adv_form_validation adv_form_input" id="firstName" type="text" maxlength="50" name="firstName" ng-change="submitForm()" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
+
 						 </div>
 					 </div>
 
 
 					 <div class="six columns">
 						 <div class="input-group">
-							 <label for="lastName"> Last Name </label>
+							 <label for="lastName"> Last Name <span class="adv_form_validation_message" ng-show="checkRegistrationField('lastName')"> * required </span> </label>
 							 <input class="adv_form_validation adv_form_input" id="lastName" type="text" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
 						 </div>
 					 </div>
@@ -80,20 +72,23 @@
 
 
 				 <div class="row">
-					 <div class="twelve columns">
-						 <div class="input-group">
-							 <label for="email"> Email Address </label>
-							 <input class="adv_form_validation adv_form_input" id="email" type="email" maxlength="50" name="emailAddress" ng-model="authorize.createTransactionRequest.transactionRequest.userFields.userField[1].value" required>
-						 </div>
-					 </div>
-				 </div> <!-- row end -->
+ 	 				<div class="twelve columns">
+ 	 					<div class="input-group">
+ 	 						<label for="email"> Email Address <span class="adv_form_validation_message" ng-show="checkRegistrationField('emailAddress')"> * required </span> </label>
+ 	 						<input class="adv_form_validation adv_form_input" id="email" type="email" maxlength="50" name="emailAddress" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' ng-model="authorize.createTransactionRequest.transactionRequest.userFields.userField[1].value" required>
+						</div>
+ 	 				</div>
+ 	 			</div> <!-- row end -->
 
+
+				 <span class="adv_form_validation_message" ng-show="checkRegistrationCheckField()"> * Please select an option </span>
 
 				 <div class="row">
+
 					 <div class="four columns">
 						 <div class="check-container">
 							 <div class="input-group">
-								 <input type="checkbox" name="Foursome" id="foursome" class="adv_form_checkbox" ng-change="updatePrice()" value="460" ng-model="prices.foursome.selected">
+								 <input type="checkbox" name="Foursome" id="foursome" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" ng-change="updatePrice()" value="460" ng-model="prices.foursome.selected">
 								 <label for="foursome"> Four Some - $460 </label>
 							 </div>
 					 	</div>
@@ -102,7 +97,7 @@
 					 <div class="four columns">
 							 <div class="check-container">
 								 <div class="input-group">
-									 <input type="checkbox" id="singleplayer" class="adv_form_checkbox" name="Single Player" ng-change="updatePrice()" value="115" ng-model="prices.singlePlayer.selected">
+									 <input type="checkbox" id="singleplayer" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" name="Single Player" ng-change="updatePrice()" value="115" ng-model="prices.singlePlayer.selected">
 									 <label for="singleplayer"> Single Player - $115 </label>
 								 </div>
 						 </div>
@@ -111,7 +106,7 @@
 					 <div class="four columns">
 						 <div class="check-container">
 						 <div class="input-group">
-							 <input type="checkbox" name="Dinner Guest" class="adv_form_checkbox" id="dinnerguest" ng-change="updatePrice()" value="50" ng-model="prices.dinnerGuest.selected">
+							 <input type="checkbox" name="Dinner Guest" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" id="dinnerguest" ng-change="updatePrice()" value="50" ng-model="prices.dinnerGuest.selected">
 							 <label for="dinnerguest"> Dinner Guest - $50 </label>
 						 </div>
 					 </div>
@@ -159,7 +154,7 @@
 					 <div class="four columns">
 						 <div class="check-container">
 							 <div class="input-group">
-								 <input type="checkbox" id="drinksponsor" class="adv_form_checkbox" name="drinkSponsor" ng-change="updatePrice()" value="250" ng-model="prices.drinkSponsor.selected">
+								 <input type="checkbox" id="drinksponsor" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" name="drinkSponsor" ng-change="updatePrice()" value="250" ng-model="prices.drinkSponsor.selected">
 								 <label for="drinksponsor"> Drink Sponsor - $250 </label>
 							 </div>
 					 	</div>
@@ -168,7 +163,7 @@
 					 <div class="four columns">
 						 <div class="check-container">
 							 <div class="input-group">
-								 <input type="checkbox" id="holesponsor" class="adv_form_checkbox" name="holeSponsor" ng-change="updatePrice()" value="100" ng-model="prices.holeSponsor.selected">
+								 <input type="checkbox" id="holesponsor" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" name="holeSponsor" ng-change="updatePrice()" value="100" ng-model="prices.holeSponsor.selected">
 								 <label for="holesponsor"> Hole Sponsor - $100 </label>
 							 </div>
 					 	</div>
@@ -178,7 +173,7 @@
 					 <div class="four columns">
 						 <div class="check-container">
 							 <div class="input-group">
-								 <input type="checkbox" id="golddinner" class="adv_form_checkbox" name="goldDinner" ng-change="updatePrice()" value="460" ng-model="prices.goldDinner.selected">
+								 <input type="checkbox" id="golddinner" class="adv_form_checkbox" ng-required="checkRegistrationCheckField()" name="goldDinner" ng-change="updatePrice()" value="460" ng-model="prices.goldDinner.selected">
 								 <label for="golddinner"> Gold/Dinner - $500 </label>
 							 </div>
 					 	</div>
@@ -190,7 +185,7 @@
 					 <div class="four columns">
 						 	<div class="check-container">
 							 <div class="input-group">
-								 <input type="checkbox" class="adv_form_checkbox" id="silverlunch" name="silverLunch" ng-change="updatePrice()" value="350" ng-model="prices.silverLunch.selected">
+								 <input type="checkbox" class="adv_form_checkbox" id="silverlunch" ng-required="checkRegistrationCheckField()" name="silverLunch" ng-change="updatePrice()" value="350" ng-model="prices.silverLunch.selected">
 								 <label for="silverlunch"> Silver/Lunch - $350 </label>
 							 </div>
 						 </div>
@@ -200,7 +195,7 @@
 					 <div class="four columns">
 						 <div class="check-container">
 						 <div class="input-group">
-							 <input type="checkbox" class="adv_form_checkbox" id="bronzeputting" name="bronzePutting" ng-change="updatePrice()" value="250" ng-model="prices.bronzePutting.selected">
+							 <input type="checkbox" class="adv_form_checkbox" id="bronzeputting" ng-required="checkRegistrationCheckField()" name="bronzePutting" ng-change="updatePrice()" value="250" ng-model="prices.bronzePutting.selected">
 							 <label for="bronzeputting"> Bronze/Putting - $250 </label>
 						 </div>
 					 	</div>
@@ -210,9 +205,11 @@
 				 </div> <!-- row end -->
 
 
-				 <div class="form-button-container">
-					 <button ng-click="nextTab(0)"> Next </button>
-				 </div>
+				 <div class="advantage-button-nav-container">
+						 <div class="form-button-container">
+							 <button class="form-button-next" ng-click="checkRegistrationForm(0)"> Next </button>
+						 </div>
+					 </div>
 
 		 	</form>
 
@@ -225,7 +222,16 @@
 
 		 <div class="sk-container adv-grid-container">
 
-			 <form novalidate name="golf-outing-payment-form">
+
+
+
+
+
+
+			 <!-- ============ Golf Outing Payment Form ============ -->
+
+
+			 <form novalidate name="golf_outing_payment_form">
 
 
 				 <h2 class="golf-outing-payment-form-header"> Payment Form </h2>
@@ -235,7 +241,7 @@
 
 
 						 <div class="input-group">
-							 <label for="cardnumber"> Card Number </label>
+							 <label for="cardnumber"> Card Number <span class="adv_form_validation_message" ng-show="paymentCheckField('cardNumber')"> * invalid </span> </label>
 							 <input type="text" id="cardnumber" class="adv_form_validation adv_form_input" name="cardNumber" ng-pattern="/^\d{16}$/" placeholder="xxxx xxxx xxxx xxxx" ng-minlength="16" ng-maxlength="16" maxlength="16" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber" required>
 							</div>
 						</div>
@@ -243,20 +249,22 @@
 
 
 					<div class="row">
+
 						<div class="six columns">
- 						 <div class="input-group">
-							<label for="expirationdate"> Expiration Date </label>
-				 		 	<input type="text" id="expirationdate" class="adv_form_validation adv_form_input" name="expirationDate" ng-pattern="/^\d{2}\-\d{4}$/" ng-minlength="7" maxlength="7" ng-maxlength="7" placeholder="MM-YYYY" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate" required>
- 						 </div>
+ 							<div class="input-group">
+								<label for="expirationdate"> Expiration Date <span class="adv_form_validation_message" ng-show="paymentCheckField('expirationDate')"> * invalid </span> </label>
+				 				<input type="text" id="expirationdate" class="adv_form_validation adv_form_input" name="expirationDate" ng-pattern="/^\d{2}\-\d{4}$/" ng-minlength="7" maxlength="7" ng-maxlength="7" placeholder="MM-YYYY" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate" required>
+ 						  </div>
  						</div>
 
 
 						<div class="six columns">
 							<div class="input-group">
-								<label for="cardcode"> CVV Code </label>
+								<label for="cardcode"> CVV Code <span class="adv_form_validation_message" ng-show="paymentCheckField('cardCode')"> * invalid </span> </label>
 						  	<input type="text" id="cardcode" class="adv_form_validation adv_form_input" name="cardCode" ng-pattern="/^\d{3}$/" placeholder="CVV" ng-minlength="3" ng-maxlength="3" maxlength="3" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardCode" required>
 							</div>
 						</div>
+
 				 	</div> <!-- row end -->
 
 
@@ -376,13 +384,15 @@
 
 
 					<!-- Validate this form when the button is clicked and go next. -->
-					<div class="form-button-container">
- 					 <button ng-click="nextTab(1)"> Next </button>
- 				 </div>
+					<div class="advantage-button-nav-container">
+						<div class="form-button-container">
+							<button class="form-button-next" ng-click="checkPaymentForm(1)"> Next </button>
+						</div>
 
-				 <div class="form-button-container">
-					 <button ng-click="prevTab(1)"> Prev </button>
-				 </div>
+						<div class="form-button-container">
+							<button class="form-button-prev" ng-click="prevTab(1)"> Prev </button>
+						</div>
+					</div>
 
 
 			 </form>
@@ -401,30 +411,30 @@
 				 <div class="detail-container">
 				 	<h3 class="detail-header"> Services: </h3>
 
-					<ul ng-repeat="service in prices">
-
-						<li ng-show="service.selected == true"> {{ service.label }} </li>
+					<ul class="summary-list" >
+						<li ng-show="service.selected == true" ng-repeat="service in prices"> {{ service.label }} </li>
 					</ul>
 				</div>
 
 				<div class="detail-container">
 					<h3 class="detail-header"> Guests </h3>
 
-					<ul>
+					<ul class="summary-list">
 						<li> {{ guests[0] }} </li>
 						<li> {{ guests[1] }} </li>
 						<li> {{ guests[2] }} </li>
 					</ul>
 				</div>
 
+				<div class="advantage-button-nav-container">
+					<div class="form-button-container">
+						<button class="form-button-next" ng-click="sendData()"> Purchase <img src="" class="form-load-icon" /> </button>
+					</div>
 
-				<div class="form-button-container" ng-click="sendData()">
-					<button> Purchase </button>
-				</div>
 
-
-				<div class="form-button-container">
-					<button ng-click="prevTab(2)"> prev </button>
+					<div class="form-button-container">
+						<button class="form-button-prev" ng-click="prevTab(2)"> prev </button>
+					</div>
 				</div>
 
 

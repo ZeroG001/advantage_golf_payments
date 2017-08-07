@@ -12,11 +12,29 @@ html {
   padding: 50px 0px; }
 
 /* testing styles */
+/* when the field is untouched don't chnage the color */
 .adv_form_validation.ng-untouched {
   background-color: initial !important; }
 
+/* when field is dirty and untouched chnage the color */
 .adv_form_validation.ng-dirty.ng-invalid {
   background-color: #f3cccc; }
+
+.advantage-button-nav-container {
+  position: relative;
+  padding: 20px; }
+  .advantage-button-nav-container:after {
+    display: table;
+    clear: both;
+    content: " "; }
+  .advantage-button-nav-container .form-button-next {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .advantage-button-nav-container .form-button-prev {
+    position: absolute;
+    left: 0;
+    top: 0; }
 
 .adv_form_validation.ng-valid {
   background-color: initial; }
@@ -25,6 +43,13 @@ html {
   color: #ea150b;
   background-color: #dadada;
   padding: 30px; }
+
+.detail-container {
+  margin-bottom: 20px; }
+
+.detail-header {
+  font-size: 1.728rem;
+  margin: 0px 0px 10px 0px; }
 
 .content-container h1 {
   color: #d4d4d4;
@@ -45,15 +70,21 @@ html {
 .golf-outing-payment-form-header {
   font-size: 1.728rem; }
 
-.input-group label {
-  font-size: 1rem;
-  font-weight: 100; }
+.input-group {
+  margin-bottom: 21px; }
+  .input-group input {
+    font-size: 0.833rem;
+    margin-bottom: 0px; }
+  .input-group label {
+    font-size: 1rem;
+    font-weight: 100; }
 
-.check-container {
-  padding: 10px 0px; }
-
-.input-group input {
-  font-size: 0.833rem; }
+/* From Validation Messages */
+.adv_form_validation_message {
+  display: inline-block;
+  font-size: 0.833rem;
+  color: tomato;
+  padding: 10px 0px 15px 0px; }
 
 .guest-container {
   padding: 16px 10px 10px 10px;
@@ -77,6 +108,11 @@ html {
 ------------------------------------------- */
 .adv_form_checkbox[type="checkbox"] {
   display: none; }
+
+.summary-list {
+  list-style: none;
+  margin-bottom: 10px li;
+    margin-bottom-margin-bottom: 0px; }
 
 .adv_form_checkbox[type="checkbox"]:not(:checked) + label,
 .adv_form_checkbox[type="checkbox"]:checked + label {

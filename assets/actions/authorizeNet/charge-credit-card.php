@@ -1,7 +1,7 @@
 <?php
 
 
-  if($_SERVER['REQUEST_METHOD'] == "POST") {
+  if ( $_SERVER['REQUEST_METHOD'] == "POST" ) {
 
     $params = json_decode(file_get_contents('php://input'));
 
@@ -34,7 +34,6 @@
       $advPay_guest1 = $adv_guestsArray[0];
       $advPay_guest2 = $adv_guestsArray[1];
       $advPay_guest3 = $adv_guestsArray[2];
-      $advPay_guest4 = $adv_guestsArray[3];
     }
     else {
       $advPay_guest1 = "";
@@ -161,12 +160,8 @@
   $merchantDefinedField3->setValue($advPay_guest3);
 
   $merchantDefinedField4 = new AnetAPI\UserFieldType();
-  $merchantDefinedField4->setName("Guest 4");
-  $merchantDefinedField4->setValue($advPay_guest4);
-
-  $merchantDefinedField5 = new AnetAPI\UserFieldType();
-  $merchantDefinedField5->setName("emailAddress");
-  $merchantDefinedField5->setValue($advPay_email);
+  $merchantDefinedField4->setName("emailAddress");
+  $merchantDefinedField4->setValue($advPay_email);
 
 
 // Create a transaction
@@ -181,7 +176,6 @@
   $transactionRequestType->addToUserFields($merchantDefinedField2);
   $transactionRequestType->addToUserFields($merchantDefinedField3);
   $transactionRequestType->addToUserFields($merchantDefinedField4);
-  $transactionRequestType->addToUserFields($merchantDefinedField5);
 
 
 
