@@ -9,6 +9,7 @@
 
       $advPay_cardNumber = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardNumber;
       $advPay_expiration = $params->createTransactionRequest->transactionRequest->payment->creditCard->expirationDate;
+      $advPay_cardCode = $params->createTransactionRequest->transactionRequest->payment->creditCard->cardCode;
       $advPay_amount = $params->createTransactionRequest->transactionRequest->amount;
       $advPay_invoiceNumber = "250" . substr(time(),3,10); // Invoice Number isn't going to be used? Make it randomly generated number
       $advPay_itemDescription = $params->createTransactionRequest->transactionRequest->userFields->userField[2]->value; // Not used
@@ -107,6 +108,7 @@
   $creditCard = new AnetAPI\CreditCardType();
   $creditCard->setCardNumber($advPay_cardNumber);
   $creditCard->setExpirationDate($advPay_expiration);
+  $creditCard->setCardCode($advPay_cardCode);
 
   // Add the Payment Data to the object
   $paymentOne = new AnetAPI\PaymentType();
@@ -181,7 +183,7 @@
 
   $request = new AnetAPI\CreateTransactionRequest();
   $request->setMerchantAuthentication($merchantAuthentication);
-  $request->setRefId( $refId);
+  $request->setRefId($refId);
 
   $request->setTransactionRequest($transactionRequestType);
   $controller = new AnetController\CreateTransactionController($request);
@@ -190,20 +192,21 @@
 if ($response != null)
 {
   $tresponse = $response->getTransactionResponse();
+
   if (($tresponse != null) && ($tresponse->getResponseCode()=="1"))
   {
-    echo "Charge Credit Card AUTH CODE : " . $tresponse->getAuthCode() . "\n";
-    echo "Charge Credit Card TRANS ID  : " . $tresponse->getTransId() . "\n";
+    echo "Purchase Successfull";
+    //  echo "Charge Credit Card AUTH CODE : " . $tresponse->getAuthCode() . "\n";
+    // echo "Charge Credit Card TRANS ID  : " . $tresponse->getTransId() . "\n";
   }
   elseif ($tresponse != null && $tresponse->getErrors() != null)
   {
-    echo " Error Code  : " . $tresponse->getErrors()[0]->getErrorCode() . "\n";
-    echo " Error Message : " . $tresponse->getErrors()[0]->getErrorText() . "\n";
-    echo "Charge Credit Card ERROR :  Invalid response\n";
+    echo " Error Code  : " . $tresponse->getErrors()[0]->getErrorCode() . " - " . $tresponse->getErrors()[0]->getErrorText();
+    // echo "Charge Credit Card ERROR :  Invalid response\n";
   }
    else
   {
-    echo "Charge Credit Card ERROR :  Invalid response\n";
+    echo "Charge Credit Card ERROR :  Invalid response. Transaction Canceled \n";
   }
 }
 else

@@ -7,7 +7,6 @@
 
     // In html make it so that fields attach to authorize. Use a method to shorten it.
 
-
     // Item Prices
     $scope.prices = {
       "foursome" : { "price" : 460, "selected" : false, "label" : "Foursome"},
@@ -90,6 +89,8 @@
               }
           }
       }
+
+
 
 
       $scope.validateCardNumber = function() {

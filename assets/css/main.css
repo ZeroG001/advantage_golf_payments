@@ -11,6 +11,42 @@ html {
   background-position: center center;
   padding: 50px 0px; }
 
+/* ------------------------- */
+.golf_outing_progress_container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 60px 0px 0px 0px;
+  justify-content: space-around; }
+
+.golf_outing_progress_container h3 {
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+  font-weight: 500;
+  font-size: 1rem; }
+
+.golf_outing_progress_container:after {
+  content: " ";
+  z-index: -1;
+  height: 2px;
+  width: 100%;
+  bottom: 13px;
+  position: absolute;
+  background-color: #D1D1D1; }
+
+.golf_outing_tab_button_one,
+.golf_outing_tab_button_two,
+.golf_outing_tab_button_three {
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: block;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin: 0px auto;
+  border: 1px solid #4dc161; }
+
+/* ------------------------- */
 /* testing styles */
 /* when the field is untouched don't chnage the color */
 .adv_form_validation.ng-untouched {
@@ -41,8 +77,8 @@ html {
 
 .alert {
   color: #ea150b;
-  background-color: #dadada;
-  padding: 30px; }
+  text-align: center;
+  padding: 50px 0px 0px 0px; }
 
 .detail-container {
   margin-bottom: 20px; }
@@ -84,7 +120,7 @@ html {
   display: inline-block;
   font-size: 0.833rem;
   color: tomato;
-  padding: 10px 0px 15px 0px; }
+  padding: 10px 0px 5px 0px; }
 
 .guest-container {
   padding: 16px 10px 10px 10px;

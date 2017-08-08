@@ -19,6 +19,8 @@
 
 		<!-- I would like to add an email field in somewhere -->
 
+
+
 		<section>
 			<div class="hero-container">
 
@@ -35,7 +37,31 @@
 
 		</section>
 
-		<div class="alert" class="ng-hide"> {{ ajaxResponse }} </div>
+
+
+		<div class="golf_outing_progress_container">
+
+		  <div class="tab_button_container">
+
+		    <h3> User Information </h3>
+		    <div class="golf_outing_tab_button_one"></div>
+
+		  </div>
+
+		  <div class="tab_button_container">
+		    <h3> Payment Information </h3>
+		    <div class="golf_outing_tab_button_two"></div>
+		  </div>
+
+		  <div class="tab_button_container">
+		    <h3> Confirm Details </h3>
+		    <div class="golf_outing_tab_button_three"> </div>
+		  </div>
+
+		</div>
+
+
+	<div class="alert ng-hide" ng-show="ajaxResponse != ''"> {{ ajaxResponse }} </div>
 
 
 		<!--
@@ -252,7 +278,7 @@
 
 						<div class="six columns">
  							<div class="input-group">
-								<label for="expirationdate"> Expiration Date <span class="adv_form_validation_message" ng-show="paymentCheckField('expirationDate')"> * invalid </span> </label>
+								<label for="xdate"> Expiration Date <span class="adv_form_validation_message" ng-show="paymentCheckField('expirationDate')"> * invalid </span> </label>
 				 				<input type="text" id="expirationdate" class="adv_form_validation adv_form_input" name="expirationDate" ng-pattern="/^\d{2}\-\d{4}$/" ng-minlength="7" maxlength="7" ng-maxlength="7" placeholder="MM-YYYY" ng-model="authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate" required>
  						  </div>
  						</div>
@@ -271,7 +297,7 @@
 					<div class="row">
 						<div class="six columns">
 							<div class="input-group">
-								<label for="bfirstname"> First Name </label>
+								<label for="bfirstname"> First Name <span class="adv_form_validation_message" ng-show="paymentCheckField('firstName')"> * required </span> </label>
 						  	<input type="text" id="bfirstname" class="adv_form_validation adv_form_input" maxlength="50" name="firstName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.firstName" required>
 							</div>
 						</div>
@@ -279,7 +305,7 @@
 
 						<div class="six columns">
 							<div class="input-group">
-								<label for="blastname"> Last Name </label>
+								<label for="blastname"> Last Name <span class="adv_form_validation_message" ng-show="paymentCheckField('lastName')"> * required </span> </label>
 								<input type="text" id="blastname" class="adv_form_validation adv_form_input" maxlength="50" name="lastName" ng-model="authorize.createTransactionRequest.transactionRequest.billTo.lastName" required>
 							</div>
 						</div>
@@ -428,7 +454,7 @@
 
 				<div class="advantage-button-nav-container">
 					<div class="form-button-container">
-						<button class="form-button-next" ng-click="sendData()"> Purchase <img src="" class="form-load-icon" /> </button>
+						<button class="form-button-next" ng-click="sendData()" ng-disabled="false"> Purchase <img src="" class="form-load-icon" /> </button>
 					</div>
 
 
@@ -470,3 +496,4 @@
                         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                             
+                                                                                        
