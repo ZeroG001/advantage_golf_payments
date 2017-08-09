@@ -155,7 +155,9 @@ html {
 }
 
 
+
 .input-group {
+  
   margin-bottom: 21px;
 
   input {
@@ -171,10 +173,7 @@ html {
 }
 
 
-.check-container {
-}
-
-
+.check-container { }
 
 .arrow-up { }
 
@@ -183,7 +182,7 @@ html {
   display: inline-block;
   font-size: 0.833rem;
   color: tomato;
-  padding: 10px 0px 5px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 
@@ -242,6 +241,8 @@ html {
 		background-color: #4d9ae8;
 }
 
+
+@-webkit-key
 
 /* Larger than mobile */
 @media (min-width: 400px) {}

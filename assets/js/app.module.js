@@ -21,12 +21,15 @@
 
     $scope.tabs = [true, false, false];
 
+    $scope.showSpinner = false;
+
     //index = index number of current tab
     $scope.nextTab = function(index) {
       $scope.tabs[index] = false;
       $scope.tabs[index + 1] = true;
     }
 
+    //index = index number of current tab
     $scope.prevTab = function(index) {
       $scope.tabs[index] = false;
       $scope.tabs[index - 1] = true;
@@ -92,7 +95,6 @@
 
 
 
-
       $scope.validateCardNumber = function() {
         //  alert("card number validated");
         // $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber = "23";
@@ -120,6 +122,28 @@
         // $scope.price = total;
       }
 
+      // Jump to another tab by clicking one of the tab buttons
+  $scope.showTab = function(tabNum) {
+
+    if ( $scope.tabs[0] == true ) {
+        if( !$scope.checkRegistrationForm() ) {
+          return false;
+        }
+    }
+
+  if( $scope.tabs[1] == true ) {
+    if(!$scope.checkPaymentForm()) {
+      return false;
+    }
+  }
+
+    for (var i = 0; i < $scope.tabs.length; i++) {
+      $scope.tabs[i] = false;
+    }
+    // Change tab to the index number provided
+    $scope.tabs[tabNum] = true;
+
+  }
 
 
       // Update the list of guests that will be acompanying the main guest.
@@ -130,14 +154,16 @@
 
       }
 
-      // Check if the registration form is valid
-      $scope.checkRegistrationForm = function(index) {
-        if ( $scope.golf_outing_registration_form.$valid ) {
-          $scope.tabs[index] = false;
-          $scope.tabs[index + 1] = true;
 
+      // Check if the registration form is valid
+      $scope.checkRegistrationForm = function() {
+        if ( $scope.golf_outing_registration_form.$valid ) {
+          return true
+        } else {
+          return false;
         }
       }
+
 
       // Check if at least one of the checkboxes are selected.
       $scope.checkRegistrationCheckField = function() {
@@ -153,37 +179,52 @@
 
       // Check valid form field on Registration Form
       $scope.checkRegistrationField = function(fieldName) {
-
         // When field is DIRTY and INVALID
         if( $scope.golf_outing_registration_form[fieldName].$invalid && $scope.golf_outing_registration_form[fieldName].$dirty ||
-            $scope.golf_outing_registration_form.$invalid && $scope.golf_outing_registration_form.$submitted  ) {
+            $scope.golf_outing_registration_form.$invalid && $scope.golf_outing_registration_form.$submitted && $scope.golf_outing_registration_form[fieldName].$invalid  ) {
 
           return true;
         }
         else {
             return false;
         }
-
       }
 
 
-      $scope.checkPaymentForm = function(index) {
+      $scope.checkPaymentForm = function() {
         if ( $scope.golf_outing_payment_form.$valid ) {
-          $scope.tabs[index] = false;
-          $scope.tabs[index + 1] = true;
-
+          return true;
+        } else {
+          return false;
         }
       }
+
 
       // Check valid form field on payment form
       $scope.paymentCheckField = function(fieldName) {
         if( $scope.golf_outing_payment_form[fieldName].$invalid && $scope.golf_outing_payment_form[fieldName].$dirty ||
-            $scope.golf_outing_payment_form.$invalid && $scope.golf_outing_payment_form.$submitted  ) {
+            $scope.golf_outing_payment_form.$invalid && $scope.golf_outing_payment_form.$submitted && $scope.golf_outing_payment_form[fieldName].$invalid ) {
           return true;
         }
         else {
             return false;
         }
+      }
+
+      $scope.checkFormAndContinue = function(index) {
+
+        if(index == 0) {
+          if($scope.checkRegistrationForm()) {
+            $scope.nextTab(0);
+          }
+        }
+
+        if(index == 1) {
+          if($scope.checkPaymentForm()) {
+            $scope.nextTab(1);
+          }
+        }
+
       }
 
 

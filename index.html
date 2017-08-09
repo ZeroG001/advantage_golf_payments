@@ -39,26 +39,26 @@
 
 
 
-		<div class="golf_outing_progress_container">
+		<!-- <div class="golf_outing_progress_container">
 
 		  <div class="tab_button_container">
 
 		    <h3> User Information </h3>
-		    <div class="golf_outing_tab_button_one"></div>
+		    <div class="golf_outing_tab_button_one" ng-click="showTab(0)"></div>
 
 		  </div>
 
 		  <div class="tab_button_container">
 		    <h3> Payment Information </h3>
-		    <div class="golf_outing_tab_button_two"></div>
+		    <div class="golf_outing_tab_button_two" ng-click="showTab(1)"></div>
 		  </div>
 
 		  <div class="tab_button_container">
 		    <h3> Confirm Details </h3>
-		    <div class="golf_outing_tab_button_three"> </div>
+		    <div class="golf_outing_tab_button_three" ng-click="showTab(2)"></div>
 		  </div>
 
-		</div>
+		</div> -->
 
 
 	<div class="alert ng-hide" ng-show="ajaxResponse != ''"> {{ ajaxResponse }} </div>
@@ -233,7 +233,7 @@
 
 				 <div class="advantage-button-nav-container">
 						 <div class="form-button-container">
-							 <button class="form-button-next" ng-click="checkRegistrationForm(0)"> Next </button>
+							 <button class="form-button-next" ng-click="checkFormAndContinue(0)"> Next </button>
 						 </div>
 					 </div>
 
@@ -412,7 +412,7 @@
 					<!-- Validate this form when the button is clicked and go next. -->
 					<div class="advantage-button-nav-container">
 						<div class="form-button-container">
-							<button class="form-button-next" ng-click="checkPaymentForm(1)"> Next </button>
+							<button class="form-button-next" ng-click="checkFormAndContinue(1)"> Next </button>
 						</div>
 
 						<div class="form-button-container">
@@ -496,4 +496,4 @@
                         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                             
-                                                                                        
+           
