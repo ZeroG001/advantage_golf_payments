@@ -78,7 +78,8 @@ html {
 .alert {
   color: #ea150b;
   text-align: center;
-  padding: 50px 0px 0px 0px; }
+  padding: 50px 0px 0px 0px;
+  font-size: 1.728rem; }
 
 .detail-container {
   margin-bottom: 20px; }
@@ -86,6 +87,30 @@ html {
 .detail-header {
   font-size: 1.728rem;
   margin: 0px 0px 10px 0px; }
+
+.success-section-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .success-section-container .success-section-content {
+    padding: 70px 0px; }
+    .success-section-container .success-section-content h1 {
+      font-size: 1.728rem;
+      text-align: center; }
+    .success-section-container .success-section-content h3 {
+      font-size: 1.44rem;
+      text-align: center;
+      display: block;
+      padding-bottom: 10px; }
+    .success-section-container .success-section-content img {
+      width: 130px;
+      display: block;
+      margin: 0px auto;
+      height: auto; }
+    .success-section-container .success-section-content p {
+      display: block;
+      text-align: center;
+      cursor: pointer; }
 
 .content-container h1 {
   color: #d4d4d4;
@@ -165,7 +190,7 @@ html {
 .adv_form_checkbox[type="checkbox"]:checked + label {
   background-color: #4d9ae8; }
 
-/* Larger than mobile */
+@-webkit-key @media (min-width: 400px) {}
 /* Larger than phablet (also point when grid becomes active) */
 /* Larger than tablet */
 /* Larger than desktop */

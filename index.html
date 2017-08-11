@@ -19,8 +19,6 @@
 
 		<!-- I would like to add an email field in somewhere -->
 
-
-
 		<section>
 			<div class="hero-container">
 
@@ -61,7 +59,7 @@
 		</div> -->
 
 
-	<div class="alert ng-hide" ng-show="ajaxResponse != ''"> {{ ajaxResponse }} </div>
+
 
 
 		<!--
@@ -259,6 +257,7 @@
 
 			 <form novalidate name="golf_outing_payment_form">
 
+				 <div class="alert ng-hide" ng-show="ajaxResponse != ''"> {{ ajaxResponse }} </div>
 
 				 <h2 class="golf-outing-payment-form-header"> Payment Form </h2>
 
@@ -466,10 +465,33 @@
 
 			 </div>
 			 <!-- <pre> {{ authorize | json }} </pre> -->
-		 </div> <!-- container and controller end -->
-	 </section>
+			  </section>
 
-			<!-- <button id="myButton" ng-click="sendData()"> Send Credit Card Info </button> -->
+				<section ng-show="tabs[3]">
+	 			 <!-- Say the payment is successfull -->
+
+				 <div class="success-section-container">
+
+					 <div class="success-section-content">
+						 <h1> Transaction Successfull </h1>
+						 <h3> Payment Sent </h3>
+						 <img src="assets/img/success-icon-green.png">
+						 <p> <a ng-click="showTab(0)"> [ Go Back ] </a> </p>
+					 </div>
+
+				 </div>
+
+
+	 		 </section>
+
+		 </div> <!-- container and controller end -->
+
+
+
+
+
+
+	 <!-- <button id="myButton" ng-click="sendData()"> Send Credit Card Info </button> -->
 
 	</div>
 

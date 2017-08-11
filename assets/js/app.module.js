@@ -2,8 +2,9 @@
 
     var payApp = angular.module('payApp', [ 'paymentForm', 'registrationForm' ]);
 
-
     payApp.controller('PayAppController', ['$scope', '$http', function($scope, $http) {
+
+
 
     // In html make it so that fields attach to authorize. Use a method to shorten it.
 
@@ -19,7 +20,8 @@
       "bronzePutting" : { "price" : 250, "selected" : false, "label" : "Bronze Putting"}
     };
 
-    $scope.tabs = [true, false, false];
+    // Add to this arry for each tab;
+    $scope.tabs = [true, false, false, false];
 
     $scope.showSpinner = false;
 
@@ -35,6 +37,8 @@
       $scope.tabs[index - 1] = true;
     }
 
+
+
       // AUthorize json
       $scope.authorize = {
           "createTransactionRequest": {
@@ -42,7 +46,7 @@
               //     "name": "6VdY4URw86P",
               //     "transactionKey": "3b2zDK52bKK8Ax6z"
               // },
-              "refId": "123456",
+              "refId": "",
               "transactionRequest": {
                   "transactionType": "authCaptureTransaction",
                   "amount": "0",
@@ -93,6 +97,7 @@
           }
       }
 
+      $scope.authorize.createTransactionRequest.refId = new Date().getTime().toString().substring(5);
 
 
       $scope.validateCardNumber = function() {
@@ -239,7 +244,56 @@
           //$http.get('assets/actions/authorizeNet/charge-credit-card.php').then(function(response) {});
           $http({method: "POST", data: $scope.authorize, url: 'assets/actions/authorizeNet/charge-credit-card.php'}).
             then( function( response ) {
-              $scope.ajaxResponse = response.data;
+
+
+
+              // Show Transaction Errors
+              if(response.data.match(/\(6\)/i) ) {
+                $scope.showTab(1);
+                $scope.ajaxResponse = response.data;
+              }
+
+              // Show Transaction Errors
+              if(response.data.match(/\(8\)/i) ) {
+                $scope.showTab(1);
+                $scope.ajaxResponse = response.data;
+              }
+
+              if( response.data.match(/100/i) ) {
+                $scope.showTab(3);
+
+                // Clear all fields. really bad way to do it...
+                $scope.authorize.createTransactionRequest.refId = new Date().getTime().toString().substring(5);
+                $scope.authorize.createTransactionRequest.transactionRequest.transactionType.amount = 0 ;
+                $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardNumber = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.expirationDate = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.payment.creditCard.cardCode = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.firstName = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.lastName = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.company = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.address = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.city = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.state = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.zip = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.billTo.country = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.firstName = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.lastName = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.company = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.address = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.city = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.state = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.zip = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.shipTo.country = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[0].value = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[1].value = "" ;
+                $scope.authorize.createTransactionRequest.transactionRequest.userFields.userField[2].value = "" ;
+
+                for( i in $scope.prices ) {
+                  $scope.prices[i].selected = false;
+                }
+
+              }
+
             });
         }
         else {

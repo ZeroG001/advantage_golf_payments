@@ -108,16 +108,57 @@ html {
   color: #ea150b;
   text-align: center;
   padding: 50px 0px 0px 0px;
+  font-size: 1.728rem;
 }
+
 
 .detail-container {
   margin-bottom: 20px;
 }
 
+
 .detail-header {
   font-size: 1.728rem;
   margin: 0px 0px 10px 0px;
 }
+
+.success-section-container {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .success-section-content {
+      padding: 70px 0px;
+
+      h1 {
+        font-size: 1.728rem;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.44rem;
+        text-align: center;
+        display: block;
+        padding-bottom: 10px;
+      }
+
+      img {
+        width: 130px;
+        display: block;
+        margin: 0px auto;
+        height: auto;
+      }
+
+      p {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+      }
+  }
+
+}
+
 
 .content-container {
 
@@ -157,7 +198,7 @@ html {
 
 
 .input-group {
-  
+
   margin-bottom: 21px;
 
   input {

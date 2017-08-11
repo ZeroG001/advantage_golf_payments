@@ -195,13 +195,15 @@ if ($response != null)
 
   if (($tresponse != null) && ($tresponse->getResponseCode()=="1"))
   {
-    echo "Purchase Successfull";
+
+    // Purchase Successfull;
+    echo "100";
     //  echo "Charge Credit Card AUTH CODE : " . $tresponse->getAuthCode() . "\n";
     // echo "Charge Credit Card TRANS ID  : " . $tresponse->getTransId() . "\n";
   }
   elseif ($tresponse != null && $tresponse->getErrors() != null)
   {
-    echo " Error Code  : " . $tresponse->getErrors()[0]->getErrorCode() . " - " . $tresponse->getErrors()[0]->getErrorText();
+    echo " Error Code  : (" . $tresponse->getErrors()[0]->getErrorCode() . ") - " . $tresponse->getErrors()[0]->getErrorText();
     // echo "Charge Credit Card ERROR :  Invalid response\n";
   }
    else
