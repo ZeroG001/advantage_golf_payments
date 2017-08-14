@@ -245,6 +245,8 @@
           $http({method: "POST", data: $scope.authorize, url: 'assets/actions/authorizeNet/charge-credit-card.php'}).
             then( function( response ) {
 
+              console.log(response);
+
 
 
               // Show Transaction Errors
@@ -292,12 +294,26 @@
                   $scope.prices[i].selected = false;
                 }
 
+                  // Send Email to Client When finished
+                  $http({method: "POST", data: $scope.authorize, url: 'assets/actions/sendEmail.php'}).then( function(response) {
+                    console.log(response.data);
+
+                      /*
+                        if ( response.data == "success" ) {
+                          console.log('email has been successfull sent');
+                        } else {
+                        console.log('there was a problem sending the email - ' + response.data);
+                      }
+                    */
+                  });
+
+
               }
 
             });
         }
         else {
-          alert("No");
+          alert("Error occured when trying to connect to payment system. Transaction Cancelled");
         }
 
 
