@@ -11,6 +11,12 @@ html {
   background-position: center center;
   padding: 50px 0px; }
 
+.form-load-icon {
+  -webkit-animation: spin 1s linear infinite;
+  position: relative;
+  width: 14px;
+  vertical-align: text-bottom; }
+
 /* ------------------------- */
 .golf_outing_progress_container {
   position: relative;
@@ -74,6 +80,9 @@ html {
 
 .adv_form_validation.ng-valid {
   background-color: initial; }
+
+.go-back-button {
+  padding: 20px; }
 
 .alert {
   color: #ea150b;
@@ -190,7 +199,12 @@ html {
 .adv_form_checkbox[type="checkbox"]:checked + label {
   background-color: #4d9ae8; }
 
-@-webkit-key @media (min-width: 400px) {}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+/* Larger than mobile */
 /* Larger than phablet (also point when grid becomes active) */
 /* Larger than tablet */
 /* Larger than desktop */

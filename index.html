@@ -19,8 +19,6 @@
 
 		<!-- I would like to add an email field in somewhere -->
 
-		{{ authorize || json }}
-
 		<section>
 			<div class="hero-container">
 
@@ -455,7 +453,7 @@
 
 				<div class="advantage-button-nav-container">
 					<div class="form-button-container">
-						<button class="form-button-next" ng-click="sendData()" ng-disabled="false"> Purchase <img src="" class="form-load-icon" /> </button>
+<button class="form-button-next" ng-click="sendData()" ng-disabled="processing_payment"> Purchase <img src="assets/img/spinner.svg" ng-show="processing_payment" class="form-load-icon" /> </button>
 					</div>
 
 
@@ -478,7 +476,7 @@
 						 <h1> Transaction Successfull </h1>
 						 <h3> Payment Sent </h3>
 						 <img src="assets/img/success-icon-green.png">
-						 <p> <a ng-click="showTab(0)"> [ Go Back ] </a> </p>
+						 <p class="go-back-button"> <a ng-click="showTab(0)"> [ Go Back ] </a> </p>
 					 </div>
 
 				 </div>

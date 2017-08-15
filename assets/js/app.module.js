@@ -23,7 +23,7 @@
     // Add to this arry for each tab;
     $scope.tabs = [true, false, false, false];
 
-    $scope.showSpinner = false;
+    $scope.processing_payment = false;
 
     //index = index number of current tab
     $scope.nextTab = function(index) {
@@ -237,6 +237,8 @@
       // sned data via ajax
       $scope.sendData = function() {
 
+        $scope.processing_payment = true;
+
         // Check if form is $scope.isFormValid = function() {
         if ( true ) {
         // if ( $scope.adv_golf_outing_form.$valid ) {
@@ -247,7 +249,7 @@
 
               console.log(response);
 
-
+              $scope.processing_payment = false;
 
               // Show Transaction Errors
               if(response.data.match(/\(6\)/i) ) {
@@ -316,9 +318,7 @@
           alert("Error occured when trying to connect to payment system. Transaction Cancelled");
         }
 
-
       }
-
 
     }]);
 

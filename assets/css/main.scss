@@ -16,7 +16,12 @@ html {
 
 }
 
-.form-load-icon {}
+.form-load-icon {
+  -webkit-animation: spin 1s linear infinite;
+  position: relative;
+  width: 14px;
+  vertical-align: text-bottom;
+}
 
 /* ------------------------- */
 
@@ -102,6 +107,10 @@ html {
 
 .adv_form_validation.ng-valid {
   background-color: initial;
+}
+
+.go-back-button {
+  padding: 20px;
 }
 
 .alert {
@@ -283,7 +292,10 @@ html {
 }
 
 
-@-webkit-key
+@-webkit-keyframes spin {
+  from {-webkit-transform: rotate(0deg)}
+  to {-webkit-transform: rotate(360deg)}
+}
 
 /* Larger than mobile */
 @media (min-width: 400px) {}
