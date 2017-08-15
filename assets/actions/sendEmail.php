@@ -5,15 +5,13 @@
     $params = json_decode(file_get_contents('php://input'));
 
     die("sending response back");
-    require 'PHPMailerAutoload.php';
+    require 'vendor/PHPMailerAutoload.php';
 
     $reomail = new PHPMailer();
     $reomail->isSMTP();
     $reomail->SMTPAuth      = true;
     $reomail->Host          = "smtp.office365.com";
     $reomail->Username      = 'info@realestateone.com';
-    // $reomail->Password      = 'N0tbl@nk!';
-    $reomail->Password      = '3Lyons04';
     $reomail->SMTPSecure    = 'tls';
     $reomail->port          = '587';
     $reomail->isHTML(true);
